@@ -1,0 +1,32 @@
+{% extends "dyslexia/base.html" %}
+{% load static %}
+
+{% block title %}Login Page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">User</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Log In</li>
+{% endblock %}
+
+{% block h1 %}Welcome back{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 col-sm-12">
+        <form method="POST" class="d-grid form-group align-self-center">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <p> Don't have an account? <a href="/register"> Create one</a></p>
+            <p> Forgot your password? <a href="{% url 'register:password_reset' %}"> Reset it</a></p>
+            <button type="submit" class="btn btn-outline-primary mb-3">Acceder</button>
+        </form>        
+    </div>
+    <div class="col-lg-6 col-sm-12 text-center mb-3">
+        <img src="{% static '/img/shine-young-woman-working-on-a-laptop.jpg' %}" class="object-fit-cover img-fluid" alt="imagen inicio de sesión" width="400em">
+    </div>
+</div>
+{% endblock %}

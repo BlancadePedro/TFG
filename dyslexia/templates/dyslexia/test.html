@@ -1,0 +1,37 @@
+{% extends 'dyslexia/base.html' %}
+{% load static %}
+{% block title %}Test page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Test</li>
+{% endblock %}
+
+{% block h1 %}Detección de dislexia{% endblock %}
+
+{% block content %}
+<div class="row mt-3 mb-5" id="infoTest">
+    <div class="col-lg-8 col-sm-12">
+        <ul class="list-group">
+            <li class="list-group-item border-0"><i class="fa-solid fa-pencil text-blue-blue-700"></i> Está compuesto por 32 preguntas. Cada pregunta se especializa en evaluar un conjunto de procesos congnitivos diferente, cubriendo todos los posibles casos.</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-square-poll-vertical text-blue-blue-700"></i> Se evaluará el número de aciertos y fallos por ejercicio. Los datos obtenidos se introducirán en el modelo de Machine Learning para obtener el resultado final, determinando si el usuario tiene o no dislexia.</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-school text-blue-blue-700"></i> El modelo se ha entrenado con una muestra compuesta por más de 5.000 instancias representativa de la población, obtenidas de un estudio realizado en colegios públicos españoles.</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-desktop text-blue-blue-700"></i> Tras una busqueda exhaustiva se determinó que el algoritmo que mejores resultados ofrecía era Support Vector Machine (SVM), un algoritmo de clasificación que divide el espacio de trabajo mediante un plano.</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-circle-check text-blue-blue-700"></i> Se ha diseñado un modelo capaz de alcanzar una precisión del 94% en la predicción de la dislexia, lo que lo convierte en una herramienta confiable para la evaluación inicial.</li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-sm-12 text-center my-3 align-self-center">
+        <img src="{% static '/img/logo-read-right-ver.png' %}" class="object-fit-cover img-fluid" alt="imagen logo con bombilla ReadRight" width="500em">
+    </div>
+</div>
+<div class="row" id="test">
+    <h2 class="text-blue-blue-800">Acceso al test</h2>
+    <div class="rounded shadow bg-light text-center my-3 align-center">
+        <h3 class="m-4 text-blue-blue-900">¿Estás preparado para realizar el test?</h3>
+        <img src="{% static '/img/shine-modern-office-with-city-view-1.png' %}" class="object-fit-cover img-fluid text-center" alt="imagen inicio de sesión" width="500em">
+        <p>Te llevará entre 15 y 20 minutos. Busca un sitio tranquilo donde estés cómodo.</p>
+        <p>En las preguntas que requieran tiempo se mostrará un cronómetro en la parte superior derecha. Presta mucha atención a lo que se pide.</p>
+        <p><strong>¡Mucha suerte!</strong> Cuando estés listo accede al <a class="text-blue-blue-900" href="prueba/intro">test de detección de dislexia</a></p>
+    </div>
+</div>
+{% endblock %}

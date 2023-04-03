@@ -1,0 +1,126 @@
+{% extends 'dyslexia/base.html' %}
+{% load static %}
+{% block title %}Profile page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">User</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Perfil</li>
+{% endblock %}
+
+{% block h1 %}
+{% if user.sexo == "Hombre" %}
+    ¡Bienvenido {{ user }}!
+{% else %}
+    ¡Bienvenida {{ user }}!
+    
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row p-2" id="intro">
+    <h2>A continuación, te mostraremos tu información personal.</h2>
+</div>
+<div class="row card text-blue-blue-800 shadow py-3" id="infoUser">
+    <div class="row m-0">
+        <div class="form-group col-lg-6 col-md-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="username" class="fs-lg-3 fs-sm-6" id="usuario">Nombre de usuario: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="username">
+                <input type="text" name="username" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light" value="{{ user.username }}">
+                <button type="submit" class="btn btn-outline-blue-800" name="editar_user"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>
+    </div>       
+    <div class="row m-0">
+        <div class="form-group col-lg-6 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="first_name" class="fs-lg-3 fs-sm-5" id="nombre">Nombre: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="first_name">
+                <input type="text" name="first_name" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light" value="{{ user.first_name }}">
+                <button type="submit" class="btn btn-outline-blue-800" name="editar_nombre"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>
+        <div class="form-group col-lg-6 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="last_name" class="fs-lg-3 fs-sm-5" id="apellidos">Apellidos: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="last_name">
+                <input type="text" name="last_name" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light" value="{{ user.last_name }}">
+                <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_apellido"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="form-group col mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="email" class="fs-lg-3 fs-sm-5" id="correo">Correo: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="email">
+                <input type="text" id="email" name="email" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light" value="{{ user.email }}">
+                <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_email"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="form-group col-lg-3 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="edad" class="fs-lg-3 fs-sm-5" id="edad">Edad: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="edad">
+                <input type="number" name="edad" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light" value="{{ user.edad }}">
+                <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_edad"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>
+        <div class="form-group col-lg-3 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="sexo" class="fs-lg-3 fs-sm-5" id="sexo">Sexo: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="sexo">
+                <select name="sexo" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light" id="sex">
+                    <option value="Hombre" {% if user.sexo == "Hombre" %}selected{% endif %}>Hombre</option>
+                    <option value="Mujer" {% if user.sexo == "Mujer" %}selected{% endif %}>Mujer</option>
+                </select>
+                <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_sexo"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>        
+        <div class="form-group col-lg-6 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="lengua" class="fs-lg-3 fs-sm-5" id="lengua">Hablas solo un idioma (español): </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="lengua">
+                <select name="lengua" id="language" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light">
+                    <option value="Sí"{% if user.lengua == "Sí" %} selected{% endif %}>Sí</option>
+                    <option value="No"{% if user.lengua == "No" %} selected{% endif %}>No</option>
+                </select>
+                <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_lengua"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>
+        <div class="form-group col-lg-12 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+            <label for="suspender" class="fs-lg-3 fs-sm-5" id="lengua">Has suspendido alguna vez una asignatura relacionada con la lengua española: </label>
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="field_name" value="suspender">
+                <select name="suspender" id="fail" class="form-control fs-lg-4 fs-sm-6 border-0 bg-light">
+                    <option value="Sí"{% if user.suspender == "Sí" %} selected{% endif %}>Sí</option>
+                    <option value="No"{% if user.suspender == "No" %} selected{% endif %}>No</option>
+                </select>
+                <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_suspender"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
+            </form>
+        </div>         
+    </div>
+    <form method="post" action="{% url 'register:delete' user.id %}">
+        {% csrf_token %}
+        <div class="row m-0">
+            <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-outline-red-600 fs-lg-3 fs-sm-5"> <i class="fa-solid fa-trash fs-lg-3 fs-sm-5"></i> Eliminar cuenta</button>
+            </div>
+        </form>
+        <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
+            <a href="{% url 'register:password' %}" class="btn btn-outline-cyan-700 fs-lg-3 fs-sm-5"> <i class="fa-solid fa-lock fs-lg-3 fs-sm-5"></i> Resetear contraseña</a>
+        </div>
+    </div>    
+</div>
+{% endblock %}

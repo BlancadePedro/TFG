@@ -1,0 +1,579 @@
+[
+    {
+        "id": 1,
+        "title": "Haz click sobre la letra escuchada",
+        "letters": ["a", "e", "i", "o", "u"],
+        "dim": 3,
+        "target": "e",
+        "url_audio": "/audio/audio1.m4a"
+    },
+    {
+        "id": 2,
+        "title": "Haz click sobre la letra escuchada",
+        "letters": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "\u00F1","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+        "dim": 4,
+        "target": "g",
+        "url_audio": "/audio/audio2.m4a"
+    },
+    {
+        "id": 3,
+        "title": "Haz click sobre la letra escuchada",
+        "letters": ["n", "w", "q", "d", "y", "p", "d", "m", "h", "b", "a", "e", "u"],
+        "dim": 5,
+        "target": "b",
+        "url_audio": "/audio/audio3.m4a"
+    },
+    {
+        "id": 4,
+        "title": "Haz click sobre la letra escuchada",
+        "letters": ["d", "p", "q", "b"],
+        "dim": 6,
+        "target": "d",
+        "url_audio": "/audio/audio4.m4a"
+    },
+    {
+        "id": 5,
+        "title": "Haz click sobre la s\u00EDlaba escuchada",
+        "letters": ["pa","be","da","ne","qe","ba","na","qa","de","pe","nu","pu","du","qu","bu"],
+        "dim": 5,
+        "target": "ba",
+        "url_audio": "/audio/audio5.m4a"
+    },
+    {
+        "id": 6,
+        "title": "Haz click sobre la s\u00EDlaba escuchada",
+        "letters": ["pra","qer","qar","par","ger","are","gar","gre","pre","bar","per","gra","dar","qra","qre","der"],
+        "dim": 5,
+        "target": "gar",
+        "url_audio": "/audio/audio6.m4a"
+    },
+    {
+        "id": 7,
+        "title": "Haz click sobre la s\u00EDlaba escuchada",
+        "letters": ["pla","gle","fli","plo","plu","bru","fri","gro","tru","pru","flo","blu","fla","bli","tre","fre","dru","cro","pri","glo","cra"],
+        "dim": 5,
+        "target": "pla",
+        "url_audio": "/audio/audio7.m4a"
+    },
+    {
+        "id": 8,
+        "title": "Haz click sobre la s\u00EDlaba escuchada",
+        "letters": ["bra","cal","cla","cra","pra","par","pal","bar","gar","bla","gla","far","fal","bal","pla","gra","fra","gal","car","pir","pli","pil"],
+        "dim": 5,
+        "target": "bla",
+        "url_audio": "/audio/audio8.m4a"
+    },
+    {
+        "id": 9,
+        "title": "Haz click sobre la s\u00EDlaba escuchada",
+        "letters": ["glir","gler","grel","glen","gren","glis","gles","grin","glil","gril","glin","glim"],
+        "dim": 6,
+        "target": "glis",
+        "url_audio": "/audio/audio9.m4a"
+    },
+    {
+        "id": 10,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["gala","cala","mala","pala","bala","dala","sala","nala","qala"],
+        "dim": 3,
+        "target": "pala",
+        "url_audio": "/audio/audio10.m4a"
+    },
+    {
+        "id": 11,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["boda","baba","boa","deba","loba","tuba","bota","coba","bola","beba","beta","suba","boca","boga"],
+        "dim": 4,
+        "target": "boda",
+        "url_audio": "/audio/audio11.m4a"
+    },
+    {
+        "id": 12,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["plata","palma","plena","palta","palos","plomo","palmo","palas","pleno","palta"],
+        "dim": 4,
+        "target": "plata",
+        "url_audio": "/audio/audio12.m4a"
+    },
+    {
+        "id": 13,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["cuadra","almendra","labrado","drama","alondra","trazos","catedral","ladrado","adrado"],
+        "dim": 4,
+        "target": "labrado",
+        "url_audio": "/audio/audio13.m4a"
+    },
+    {
+        "id": 14,
+        "title": "Haz click sobre la letra diferente",
+        "letters": [
+            { "a": "e" },
+            { "a": "i" },
+            { "a": "o" },
+            { "a": "u" },
+            { "e": "a" },
+            { "e": "i" },
+            { "e": "o" },
+            { "e": "u" },
+            { "i": "a" },
+            { "i": "e" },
+            { "i": "o" },
+            { "i": "u" },
+            { "o": "a" },
+            { "o": "e" },
+            { "o": "i" },
+            { "o": "u" },
+            { "u": "a" },
+            { "u": "e" },
+            { "u": "i" },
+            { "u": "o" }
+          ],
+        "dim": 5,
+        "url_audio": "/audio/audio14.m4a"
+    },
+    {
+        "id": 15,
+        "title": "Haz click sobre la letra diferente",
+        "letters": [
+            { "E": "F" },
+            { "F": "E" },
+            { "Q": "O" },
+            { "O": "C" },
+            { "B": "D" },
+            { "D": "O" },
+            { "U": "V" },
+            { "V": "W" },
+            { "M": "N" },
+            {"N":"\u00D1"},
+            {"\u00D1":"N"},
+            { "W": "M" },
+            { "I": "J" },
+            { "J": "L" },
+            { "L": "I" }
+          ],
+        "dim": 5,
+        "url_audio": "/audio/audio14.m4a"
+    },
+    {
+        "id": 16,
+        "title": "Haz click sobre la letra diferente",
+        "letters": [
+            { "b": "d" },
+            { "b": "p" },
+            { "b": "q" },
+            { "d": "b" },
+            { "d": "p" },
+            { "d": "q" },
+            { "p": "b" },
+            { "p": "d" },
+            { "p": "q" },
+            { "q": "b" },
+            { "q": "d" },
+            { "q": "p" }
+          ],
+        "dim": 5,
+        "url_audio": "/audio/audio14.m4a"
+    },
+    {
+        "id": 17,
+        "title": "Haz click sobre la letra diferente",
+        "letters":  [
+            {"u": "n"},
+            {"n":"\u00F1"},
+            {"m": "w"},
+            {"n": "m"},
+            {"w": "v"},
+            {"r": "n"},
+            {"c": "o"}
+        ],
+        "dim": 5,
+        "url_audio": "/audio/audio14.m4a"
+    },
+    {
+        "id": 18,
+        "title": "Haz click sobre la letra diferente",
+        "letters": ["mapata","madata","damata","mapaba","mamata","pamada","matapa","dapama","pamata","madata","mapada","pamada","bapama"],
+        "dim": 3,
+        "target": "pamata",
+        "url_audio": "/audio/audio18.m4a"
+    },
+    {
+        "id": 19,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["mapata","madata","damata","dapama","mamata","pamada","matapa","pamata","madata","mapada","pamada","bapama"],
+        "dim": 3,
+        "target": "dapama",
+        "url_audio": "/audio/audio19.m4a"
+    },
+    {
+        "id": 20,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["dabaqa","dapaba","dabapa","dabada","babapa","dadapa","pabapa","badapa","babada"],
+        "dim": 3,
+        "target": "dabapa",
+        "url_audio": "/audio/audio20.m4a"
+    },
+    {
+        "id": 21,
+        "title": "Haz click sobre la palabra escuchada",
+        "letters": ["dabapaba","dadapaba","dadaqaba","dabaqaba","bapababa","bapabada","dadapada","dadaqada","babapada","dabapada"],
+        "dim": 3,
+        "target": "dabapaba",
+        "url_audio": "/audio/audio21.m4a"
+    },
+    {
+        "id": 22,
+        "title": "Haz click sobre la letra correcta",
+        "letters": [
+            {"ha_e":[ 
+                {"missing":"c"},
+                {"letters":["c","p","s","f","z"]}]},
+            {"lu_es":[ 
+                {"missing":"c"},
+                {"letters":["u","s","c","z","m"]}]},
+            {"be_ida":[ 
+                {"missing":"b"},
+                {"letters":["n","d","p","q","b"]}]},
+            {"tien_o":[ 
+                {"missing":"d"},
+                {"letters":["q","g","s","d","b"]}]},
+            {"cuan_o":[ 
+                {"missing":"t"},
+                {"letters":["b","q","p","t","g"]}]},
+            {"calida_":[ 
+                {"missing":"d"},
+                {"letters":["b","d","z","t","c"]}]},
+            {"di_e":[ 
+                {"missing":"c"},
+                {"letters":["b","q","z","s","c"]}]},
+            {"tortug_":[ 
+                {"missing":"a"},
+                {"letters":["s","a","c","o","e"]}]},
+            {"e_trella":[ 
+                {"missing":"s"},
+                {"letters":["s","r","z","c","l"]}]},
+            {"ga_as":[ 
+                {"missing":"f"},
+                {"letters":["f","z","c","r","d"]}]},
+            {"ca_allo":[ 
+                {"missing":"b"},
+                {"letters":["q","v","b","d","p"]}]},
+            {"lu_a":[ 
+                {"missing":"n"},
+                {"letters":["r","n","l","m","s"]}]},
+            {"pla_a":[ 
+                {"missing":"z"},
+                {"letters":["z","f","s","r","l"]}]},
+            {"au_ilio":[ 
+                {"missing":"x"},
+                {"letters":["x","s","c","z","f"]}]},
+            {"a_i\u00F3n":[ 
+                {"missing":"v"},
+                {"letters":["w","v","n","r","m"]}]},
+            {"b\u00FA_o":[ 
+                {"missing":"h"},
+                {"letters":["c","h","d","b","t"]}]},
+            {"pata_a":[ 
+                {"missing":"t"},
+                {"letters":["l","r","n","t","c"]}]},
+            {"la_o":[ 
+                {"missing":"z"},
+                {"letters":["z","s","l","r","f"]}]},
+            {"pi_ata":[ 
+                {"missing":"r"},
+                {"letters":["c","r","s","n","m"]}]},
+            {"_ebra":[ 
+                {"missing":"c"},
+                {"letters":["f","s","c","z","r"]}]}
+        ],
+        "url_audio": "/audio/audio22.m4a"
+    },
+    {
+        "id": 23,
+        "title": "Haz click sobre la letra que sobra",
+        "letters":  [
+            {"tardbe": "b"},
+            {"fesria": "s"},
+            {"dondbe": "b"},
+            {"bebdida": "d"},
+            {"dosmingo": "s"},
+            {"guente": "u"},
+            {"bebder": "d"},
+            {"demben": "m"},
+            {"pronceso": "n"},
+            {"mesrendar": "s"},
+            {"ventamna": "m"},
+            {"limpilan": "l"},
+            {"bourbuja": "o"},
+            {"borsque": "r"},
+            {"biciclueta": "u"},
+            {"sonmbrero": "n"},
+            {"escroba": "r"},
+            {"cristual": "u"},
+            {"cerieza": "i"},
+            {"pasciencia": "s"},
+            {"ceboullas": "u"}
+        ],
+        "url_audio": "/audio/audio23.m4a"
+    },
+    {
+        "id": 24,
+        "title": "Haz click sobre el error",
+        "letters": [
+            {"Prefiero esperarte sentaba en el sal\u00F3n": "sentaba"},
+            {"Me encanta deber agua bien fr\u00EDa en verano": "deber"},
+            {"Voy a la pasteler\u00EDa a comparar un pastel": "comparar"},
+            {"Tienes que bajar y casar al perro a pasear": "casar"},
+            {"Conoce las normas de la casa a la percepci\u00F3n": "percepci\u00F3n"},
+            {"Tienes que dejar el documento filmado antes de irte": "filmado"},
+            {"Al parecer no van a hacer nada al respeto": "respeto"},
+            {"Va a llegar a la caza del campesino": "caza"},
+            {"Los dos chicos vuelan al escondite": "vuelan"},
+            {"Caramelos de miel y de meta": "meta"},
+            {"El lagarto esta llorado": "llorado"},
+            {"Se refugian bal\u00F3n una sombrilla gigante": "bal\u00F3n"},
+            {"La c\u00E1scara se rompa en trozos peque\u00F1os": "rompa"},
+            {"Se quejan sus sombreros y dejan sus paraguas": "quejan"},
+            {"La luna blanco como la harina": "blanco"},
+            {"El p\u00E1jaro tiene su nido en la rama de un espina": "espina"},
+            {"Cosen con hitos y agujas": "hitos"},
+            {"Arriba, abajo, corre el tres por el terrapl\u00E9n":"tres"},
+            {"Un le\u00F3n de la salva ruge fuertemente": "salva"},
+            {"De tanto comer moras su ha pisto morada": "pisto"},
+            {"Hace tanto fr\u00EDo que la laguna se nieva": "nieva"}
+        ],
+        "url_audio": "/audio/audio24.m4a"
+    },
+    {
+        "id": 25,
+        "title": "Haz click sobre el error",
+        "letters": [
+            {"Esta la final del sal\u00F3n":"la"},
+            {"He invitados a todos mis amigos":"invitados"},
+            {"Mi madre es la mejor cocinera el mundo":"el"},
+            {"Mi hermana siempre toma el caf\u00E9 si leche":"si"},
+            {"Un d\u00EDa de esto te voy a sorprender":"esto"},
+            {"A\u00FAn no sabemos cuanto va a llegar tu padre":"cuanto"},
+            {"Esas cosas son de las que m\u00E1s me gusta":"gusta"},
+            {"La mujer encinde al le\u00F1a":"al"},
+            {"Despu\u00E9s ponen refrescos y un tarta":"un"},
+            {"El pirata encuentran un tesoro":"encuentran"},
+            {"El rat\u00F3n trepa pro los muros":"pro"},
+            {"Se suba a una rama": "suba"},
+            {"Cruzan uno puente de piedra":"uno"},
+            {"Atraviesa los valles y la lleva hasta le mar":"le"},
+            {"La casa de mi vecino esa muy lejos":"esa"},
+            {"Yo mi pongo la chaqueta":"mi"},
+            {"Pregunta sin quiere el t\u00E9 con leche":"sin"},
+            {"Todos esta disfrazados":"esta"},
+            {"Que bueno est\u00E1 lo pan con mermelada":"lo"},
+            {"Los ni\u00F1os del ciudad juegan en el parque":"del"}
+
+        ],
+        "url_audio": "/audio/audio24.m4a"
+    },
+    {
+        "id": 26,
+        "title": "Haz click sobre la letra que est\u00E1 mal y sustit\u00FAyela por la correcta",
+        "letters": [
+            {"haze":[ 
+                {"wrong":"z"},
+                {"right":"c"},
+                {"letters":["c","p","s","f","z"]}]},
+            {"lumes":[ 
+                {"wrong":"m"},
+                {"right":"n"},
+                {"letters":["u","s","n","r","m"]}]},
+            {"bedida":[ 
+                {"wrong":"d"},
+                {"right":"b"},
+                {"letters":["n","d","p","q","b"]}]},
+            {"tiemqo":[ 
+                {"wrong":"q"},
+                {"right":"p"},
+                {"letters":["q","g","p","d","b"]}]},
+            {"gueso":[ 
+                {"wrong":"g"},
+                {"right":"h"},
+                {"letters":["b","h","p","t","g"]}]},
+            {"calidaz":[ 
+                {"wrong":"z"},
+                {"right":"d"},
+                {"letters":["b","d","z","t","c"]}]},
+            {"died":[ 
+                {"wrong":"d"},
+                {"right":"z"},
+                {"letters":["b","f","z","s","d"]}]},
+            {"asul":[ 
+                {"wrong":"s"},
+                {"right":"z"},
+                {"letters":["s","a","z","d","r"]}]},
+            {"nabie":[ 
+                {"wrong":"b"},
+                {"right":"d"},
+                {"letters":["f","z","c","r","d"]}]},
+            {"pris":[ 
+                {"wrong":"p"},
+                {"right":"g"},
+                {"letters":["p","q","g","c","b"]}]},
+            {"verbe":[ 
+                {"wrong":"b"},
+                {"right":"d"},
+                {"letters":["q","g","b","d","p"]}]},
+            {"luma":[ 
+                {"wrong":"m"},
+                {"right":"n"},
+                {"letters":["r","n","l","m","s"]}]},
+            {"hazer":[ 
+                {"wrong":"z"},
+                {"right":"c"},
+                {"letters":["z","f","s","r","c"]}]},
+            {"abi\u00F3n":[ 
+                {"wrong":"b"},
+                {"right":"v"},
+                {"letters":["w","v","n","r","m"]}]},
+            {"c\u00E1rzel":[ 
+                {"wrong":"z"},
+                {"right":"c"},
+                {"letters":["x","s","c","z","f"]}]},
+            {"hogas":[ 
+                {"wrong":"g"},
+                {"right":"j"},
+                {"letters":["j","g","q","m","n"]}]},
+            {"patala":[ 
+                {"wrong":"l"},
+                {"right":"t"},
+                {"letters":["l","r","n","t","c"]}]},
+            {"laso":[ 
+                {"wrong":"s"},
+                {"right":"z"},
+                {"letters":["z","s","l","r","f"]}]},
+            {"pisata":[ 
+                {"wrong":"s"},
+                {"right":"r"},
+                {"letters":["c","r","s","n","z"]}]},
+            {"sebra":[ 
+                {"wrong":"s"},
+                {"right":"c"},
+                {"letters":["f","s","c","z","r"]}]}
+        ],
+        "url_audio": "/audio/audio26.m4a"
+    },
+    {
+        "id": 27,
+        "title": "Reordena las letras",
+        "letters": [
+            {"siete":["s","e","i","t","e"]},
+            {"agua":["a","u","g","a"]},
+            {"normal":["m","o","r","n","a","l"]},
+            {"suizo":["s","u","z","i","o"]},
+            {"hablar":["h","a","b","r","a","l"]},
+            {"aire":["a","r","i","e"]},
+            {"lapiz":["z","a","p","i","l"]},
+            {"azul":["a","l","u","z"]},
+            {"nube":["n","e","b","u"]},
+            {"cielo":["l","i","e","c","o"]},
+            {"viento":["v","i","o","n","t","e"]},
+            {"letra":["l","e","r","t","a"]},
+            {"rosa":["s","o","r","a"]},
+            {"madera":["d","a","m","e","r","a"]},
+            {"barco":["c","a","r","b","o"]},
+            {"tigre":["t","i","r","g","e"]},
+            {"papel":["p","e","p","a","l"]},
+            {"platano":["t","l","a","p","a","n","o"]},
+            {"feliz":["z","e","l","i","f"]},
+            {"nota":["t","o","n","a"]},
+            {"luna":["l","a","n","u"]}
+        ],
+        "url_audio": "/audio/audio27.m4a"
+    },
+    {
+        "id": 28,
+        "title": "Reordena las s\u00EDlabas",
+        "letters": [
+            {"dibujo":["jo","di","bu"]},
+            {"bebida":["bi","be","da"]},
+            {"morado":["ra","do","mo"]},
+            {"amarillo":["llo","a","ri","ma"]},
+            {"ejemplo":["plo","jem","e"]},
+            {"muestra":["mu","tra","es"]},
+            {"lapiz":["piz","la"]},
+            {"imposible":["po","ble","si","im"]},
+            {"animal":["ni","a","mal"]},
+            {"bicicleta":["cle","ta","ci","bi"]},
+            {"novela":["ve","no","la"]},
+            {"tarantula":["la","tu","ran","ta"]},
+            {"restaurante":["res","te","ran","ta","u"]},
+            {"linterna":["ter","na","lin"]},
+            {"amable":["a","ble","ma"]},
+            {"divertido":["ti","di","ver","do"]},
+            {"elefante":["fan","le","e","te"]},
+            {"lluvia":["a","vi","llu"]},
+            {"silencio":["len","si","cio"]},
+            {"lagarto":["gar","to","la"]},
+            {"bandera":["de","ra","ban"]}
+        ],
+        "url_audio": "/audio/audio28.m4a"
+    },
+    {
+        "id": 29,
+        "title": "Separa por palabras la frase",
+        "letters": [
+            {"Hoyesmicumplea\u00F1os":["Hoy","es","mi","cumplea\u00F1os"]},
+            {"Quierojugaralescondite":["Quiero","jugar","al","escondite"]},
+            {"Megustabailar":["Me","gusta","bailar"]},
+            {"Tenemospizzadejamon":["Tenemos","pizza","de","jamon"]},
+            {"Miralalunallena":["Mira","la","luna","llena"]},
+            {"Jugamosalfutbolayer":["Jugamos","al","futbol","ayer"]},
+            {"Estoyemocionadaporelconcierto":["Estoy","emocionada","por","el","concierto"]},
+            {"Compramosunregaloparasufiesta":["Compramos","un","regalo","para","su","fiesta"]},
+            {"Jugamosalvoleibolayer":["Jugamos","al","voleibol","ayer"]},
+            {"Nadeenlaplayaconmisamigos":["Nade","en","la","playa","con","mis","amigos"]},
+            {"Laprimaveracomienzaenmarzo":["La","primavera","comienza","en","marzo"]},
+            {"Megustamucholeer":["Me","gusta","mucho","leer"]},
+            {"Visiteunaciudadhistoricaenverano":["Visite","una","ciudad","historica","en","verano"]},
+            {"Lapeliculaqueviayerfueincreible":["La","pelicula","que","vi","ayer","fue","increible"]},
+            {"Paseeporlaciudad":["Pasee","por","la","ciudad"]},
+            {"Diclasesdepinturaenverano":["Di","clases","de","pintura","en","verano"]},
+            {"FuideintercambioaFrancia":["Fui","de","intercambio","a","Francia"]},
+            {"Hicimosunpicnicenelparque":["Hicimos","un","picnic","en","el","parque"]},
+            {"Terminemiexamenfinalayer":["Termine","mi","examen","final","ayer"]},
+            {"Escalerocasenelmonte":["Escale","rocas","en","el","monte"]},
+            {"Comprepastelesdechocolate":["Compre","pasteles","de","chocolate"]}
+        ],
+        "url_audio": "/audio/audio29.m4a"
+    },
+    {
+        "id": 30,
+        "title": "Mira y luego escribe la serie",
+        "letters": [
+            "iua",
+            "pgdj",
+            "vhbzq",
+            "MDJNPH"
+            ],
+        "url_audio": "/audio/audio30.m4a"
+    },
+    {
+        "id": 31,
+        "title": "Escribe la palabra escuchada",
+        "letters":  [
+            {"bebida": "/static/audio/bebida.m4a"},
+            {"principio": "/static/audio/principio.m4a"},
+            {"arbitrario": "/static/audio/arbitrario.m4a"},
+            {"percepcion": "/static/audio/percepcion.m4a"}
+        ],
+        "url_audio": "/audio/audio31.m4a"
+    },
+    {
+        "id": 32,
+        "title": "Escribe la palabra escuchada",
+        "letters":  [
+            {"tada": "/static/audio/tada.m4a"},
+            {"danama": "/static/audio/danama.m4a"},
+            {"mabadama": "/static/audio/mabadama.m4a"},
+            {"laladala": "/static/audio/laladala.m4a"}
+        ],
+        "url_audio": "/audio/audio31.m4a"
+    }
+]

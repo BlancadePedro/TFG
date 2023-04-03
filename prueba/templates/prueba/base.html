@@ -1,0 +1,103 @@
+<!doctype html>
+{% load static %}
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Blanca de Pedro">
+    <title>{% block title %}ReadRight - Dyslexia Detect{% endblock %}</title>
+    <link rel="icon" href="{% static '/img/logo-read-right-text.png' %}" type="image/png">
+    <!--Bootstrap CSS & JS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--Font Awesome CSS-->
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <!-- Optional CSS files -->
+    <link href="{% static '/css/opendyslexic.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet" type="text/css">
+    <!--Font Awesome JS-->
+    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+    <style>
+      html,body
+        {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-blue-blue-100">
+      <div class="container-fluid mx-lg-5 mx-md-4">
+        <!--Title-->
+        <h1 class="text-indigo-indigo-700">ReadRight <small>Dislexia Detect</small> </h1>
+       
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-indigo-700" data-bs-toggle="modal" data-bs-target="#exitModal" title="Salir"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exitModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-blue-blue-100">
+                <h5 class="modal-title text-blue-blue-700" id="exitModalLabel">Abandonar la página</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+              </div>
+              <div class="modal-body">
+                <p>¿Está seguro que quiere abandonar el test?</p>
+                <p>Se le redigirá directamente a la página de inicio. No se guardará el progreso realizado.</p>
+              </div>
+              <div class="modal-footer bg-blue-blue-100">
+                <button type="button" class="btn btn-outline-blue-700" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-outline-blue-700" onclick="exit()">Abandonar el test</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--Bread crumb-->
+    <div aria-label="breadcrumb" class="mx-lg-5 mx-md-4">
+      <ol class="breadcrumb">
+        {% block breadcrumb %}
+        {% endblock %}
+      </ol>
+    </div>
+    
+    
+    <!--Main content-->
+    <main class="mx-lg-5 mx-sm-4">
+      {% block content %}
+        
+      {% endblock %}
+    </main>
+    <br>
+    <!-- Footer -->
+    <footer class="bg-blue-blue-100">
+      <!--Info footer-->
+      <div class="row mx-lg-5 mx-md-4">
+        <span class="text-end mt-4" href="#"><img src="{% static '/img/logo-read-right-text.png' %}" class="object-fit-cover img-fluid" width="150em" alt="Logo ReadRight"></span>
+        <!-- Copyright -->
+        <span class="text-center">
+            © 2023 Copyright: <span class="text-dark fw-bold">ReadRight-Dyslexia Detect</span>
+        </span>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="{% static '/js/base.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/questions.js' %}"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS bundle with Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

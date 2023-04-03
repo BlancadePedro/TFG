@@ -1,0 +1,37 @@
+{% extends 'prueba/base.html' %}
+{% load static %}
+{% block title %}Test page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item disable">Inicio</li>
+    <li class="breadcrumb-item disable">Test</li>
+    <li class="breadcrumb-item active" aria-current="page">Realización del Test</li>
+{% endblock %}
+
+{% block content %}
+<div class="progress">
+    <div id="progress-bar" class="progress-bar progress-bar-striped bg-indigo-indigo-700" role="progressbar" data-index="{{ exercise.id }}" aria-valuemin="0" aria-valuemax="32">{{ exercise.id }}</div>
+</div>
+
+<h2 class="mb-5 mt-3">Pregunta {{ exercise.id }} </h2>
+
+<div class="row mb-3">
+    <h4>Presiona el botón para escuchar el enunciado:</h4>
+    <div class="row px-5 my-3">
+        <audio id="audioElement" src="{% static exercise.url_audio %}" preload="auto"></audio>
+        <button id="playButton" data-index="{{ exercise.id }}" class="btn btn-outline-indigo-700">
+            <i class="fas fa-volume-up fs-1"></i>
+        </button>
+    </div>
+</div>
+<div class="row mb-3">
+    <h4>Cuando estés preparado accede al ejercicio:</h4>
+    <div class="row px-5 my-3 text-center">
+        <h4 class="fs-3 text-purple-purple-700 pb-2">¡Mucha suerte!</h4>
+        <button id="nextExercise" data-index="{{ exercise.id }}" class="btn btn-outline-indigo-700 fs-3">Acceder al ejercicio</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static '/js/audio.js' %}"></script>
+
+{% endblock %}

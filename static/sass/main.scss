@@ -1,0 +1,374 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/utilities";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+
+$blues : ( "100": $blue-100, "200": $blue-200, "300": $blue-300, "400": $blue-400, "500": $blue-500, "600": $blue-600, "700": $blue-700, "800": $blue-800, "900": $blue-900) !default;
+$indigos: ( "100": $indigo-100, "200": $indigo-200, "300": $indigo-300, "400": $indigo-400, "500": $indigo-500, "600": $indigo-600, "700": $indigo-700, "800": $indigo-800, "900": $indigo-900) !default;
+$purples: ( "100": $purple-100, "200": $purple-200, "300": $purple-300, "400": $purple-400, "500": $purple-500, "600": $purple-600, "700": $purple-700, "800": $purple-800, "900": $purple-900) !default;
+$pinks: ( "100": $pink-100, "200": $pink-200, "300": $pink-300, "400": $pink-400, "500": $pink-500, "600": $pink-600, "700": $pink-700, "800": $pink-800, "900": $pink-900) !default;
+$reds: ( "100": $red-100, "200": $red-200, "300": $red-300, "400": $red-400, "500": $red-500, "600": $red-600, "700": $red-700, "800": $red-800, "900": $red-900) !default;
+$oranges: ( "100": $orange-100, "200": $orange-200, "300": $orange-300, "400": $orange-400, "500": $orange-500, "600": $orange-600, "700": $orange-700, "800": $orange-800, "900": $orange-900) !default;
+$yellows: ( "100": $yellow-100, "200": $yellow-200, "300": $yellow-300, "400": $yellow-400, "500": $yellow-500, "600": $yellow-600, "700": $yellow-700, "800": $yellow-800, "900": $yellow-900) !default;
+$greens: ( "100": $green-100, "200": $green-200, "300": $green-300, "400": $green-400, "500": $green-500, "600": $green-600, "700": $green-700, "800": $green-800, "900": $green-900) !default;
+$teals: ( "100": $teal-100, "200": $teal-200, "300": $teal-300, "400": $teal-400, "500": $teal-500, "600": $teal-600, "700": $teal-700, "800": $teal-800, "900": $teal-900) !default;
+$cyans: ( "100": $cyan-100, "200": $cyan-200, "300": $cyan-300, "400": $cyan-400, "500": $cyan-500, "600": $cyan-600, "700": $cyan-700, "800": $cyan-800, "900": $cyan-900) !default;
+
+body {
+  font-family:"Open Sans" !important;
+}
+
+@each $key, $value in $blues {
+  .bg-blue-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-blue-#{$key}{
+    color: $value !important;
+  }
+
+  .border-blue-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $purples {
+  .bg-purple-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-purple-#{$key}{
+    color: $value !important;
+  }
+
+  .border-purple-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $indigos {
+  .bg-indigo-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-indigo-#{$key}{
+    color: $value !important;
+  }
+
+  .border-indigo-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $pinks {
+  .bg-pink-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-pink-#{$key}{
+    color: $value !important;
+  }
+
+  .border-pink-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $reds {
+  .bg-red-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-red-#{$key}{
+    color: $value !important;
+  }
+
+  .border-red-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $oranges {
+  .bg-orange-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-orange-#{$key}{
+    color: $value !important;
+  }
+
+  .border-orange-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $yellows {
+  .bg-yellow-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-yellow-#{$key}{
+    color: $value !important;
+  }
+
+  .border-yellow-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $greens {
+  .bg-green-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-green-#{$key}{
+    color: $value !important;
+  }
+
+  .border-green-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+
+@each $key, $value in $teals {
+  .bg-teal-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-teal-#{$key}{
+    color: $value !important;
+  }
+
+  .border-teal-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+@each $key, $value in $cyans {
+  .bg-cyan-#{$key}{
+        background-color: $value !important;
+  }
+
+  .text-cyan-#{$key}{
+    color: $value !important;
+  }
+
+  .border-cyan-#{$key}{ 
+    border-color: $value !important;
+  }
+}
+
+.text-font-roboto {
+  font-family: "Roboto" !important;
+}
+
+.text-font-open-sans {
+  font-family: 'Open Sans' !important;
+}
+
+.text-font-lato {
+  font-family: "Lato" !important;
+}
+
+.text-font-monserrat {
+  font-family: 'Montserrat' !important;
+}
+
+.hstack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+}
+
+.vstack {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none;
+    color: black;
+}
+
+.fs-1 {
+  font-size: calc(1.375rem + 1.5vw) !important;
+}
+
+.fs-2 {
+  font-size: calc(1.325rem + 0.9vw) !important;
+}
+
+.fs-3 {
+  font-size: calc(1.3rem + 0.6vw) !important;
+}
+
+.fs-4 {
+  font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+.fs-5 {
+  font-size: 1.25rem !important;
+}
+
+.fs-6 {
+  font-size: 1rem !important;
+}
+
+@media (min-width: 576px) {
+  .fs-sm-1 {
+    font-size: calc(1.375rem + 1.5vw) !important;
+  }
+  .fs-sm-2 {
+    font-size: calc(1.325rem + 0.9vw) !important;
+  }
+  .fs-sm-3 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+  }
+  .fs-sm-4 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+  }
+  .fs-sm-5 {
+    font-size: 1.25rem !important;
+  }
+  .fs-sm-6 {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 768px) {
+  .fs-md-1 {
+    font-size: calc(1.375rem + 1.5vw) !important;
+  }
+  .fs-md-2 {
+    font-size: calc(1.325rem + 0.9vw) !important;
+  }
+  .fs-md-3 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+  }
+  .fs-md-4 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+  }
+  .fs-md-5 {
+    font-size: 1.25rem !important;
+  }
+  .fs-md-6 {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .fs-lg-1 {
+    font-size: calc(1.375rem + 1.5vw) !important;
+  }
+  .fs-lg-2 {
+    font-size: calc(1.325rem + 0.9vw) !important;
+  }
+  .fs-lg-3 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+  }
+  .fs-lg-4 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+  }
+  .fs-lg-5 {
+    font-size: 1.25rem !important;
+  }
+  .fs-lg-6 {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 1200px) {
+  .fs-xl-1 {
+    font-size: calc(1.375rem + 1.5vw) !important;
+  }
+  .fs-xl-2 {
+    font-size: calc(1.325rem + 0.9vw) !important;
+  }
+  .fs-xl-3 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+  }
+  .fs-xl-4 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+  }
+  .fs-xl-5 {
+    font-size: 1.25rem !important;
+  }
+  .fs-xl-6 {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 1400px) {
+  .fs-xxl-1 {
+    font-size: calc(1.375rem + 1.5vw) !important;
+  }
+  .fs-xxl-2 {
+    font-size: calc(1.325rem + 0.9vw) !important;
+  }
+  .fs-xxl-3 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+  }
+  .fs-xxl-4 {
+    font-size: calc(1.275rem + 0.3vw) !important;
+  }
+  .fs-xxl-5 {
+    font-size: 1.25rem !important;
+  }
+  .fs-xxl-6 {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 1200px) {
+  .fs-1 {
+    font-size: 2.5rem !important;
+  }
+  .fs-2 {
+    font-size: 2rem !important;
+  }
+  .fs-3 {
+    font-size: 1.75rem !important;
+  }
+  .fs-4 {
+    font-size: 1.5rem !important;
+  }
+  .fs-sm-1 {
+    font-size: 2.5rem !important;
+  }
+  .fs-sm-2 {
+    font-size: 2rem !important;
+  }
+  .fs-sm-3 {
+    font-size: 1.75rem !important;
+  }
+  .fs-sm-4 {
+    font-size: 1.5rem !important;
+  }
+  .fs-md-1 {
+    font-size: 2.5rem !important;
+  }
+  .fs-md-2 {
+    font-size: 2rem !important;
+  }
+  .fs-md-3 {
+    font-size: 1.75rem !important;
+  }
+  .fs-md-4 {
+    font-size: 1.5rem !important;
+  }
+  .fs-lg-1 {
+    font-size: 2.5rem !important;
+  }
+  .fs-lg-2 {
+    font-size: 2rem !important;
+  }
+  .fs-lg-3 {
+    font-size: 1.75rem !important;
+  }
+  .fs-lg-4 {
+    font-size: 1.5rem !important;
+  }
+}

@@ -1,0 +1,128 @@
+{% extends 'dyslexia/base.html' %}
+{% load static %}
+{% block title %}Home page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+{% endblock %}
+
+{% block h1 %} Read Right {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 col-sm-12 mt-2 mb-5">
+        <h2 class="fs-3 text-blue-blue-800 text-uppercase">Dislexia Detect</h2>
+        <h4>Nuestra página web ofrece una solución integral la dislexia, que incluye:</h4>
+        <ul class="list-group">
+            <li class="list-group-item border-0"><i class="fa-solid fa-check text-cyan-cyan-800"></i> Una prueba que permite determinar con precisión si se tiene dislexia, facilitando la búsqueda del tratamiento adecuado.</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-check text-cyan-cyan-800"></i> Un modelo de Machine Learning entrenado para la detección de dislexia, altamente preciso en la predicción de dislexia</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-check text-cyan-cyan-800"></i> Un sistema de retroalimentación incorporado al modelo de Machine Learning, obteniendo resultados actualizados en todo momento</li>
+            <li class="list-group-item border-0"><i class="fa-solid fa-check text-cyan-cyan-800"></i> Ejercicios prácticos y personalizados para tratar la dislexia, cubriendo distintas áreas y habilidades</li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-sm-12 text-center my-3 align-self-center">
+        <img src="{% static '/img/shine-young-woman-searching-for-information-on-the-internet-1.png' %}" class="object-fit-cover img-fluid" alt="imagen inicio de sesión" width="450em">
+    </div>
+</div>
+<div class="row">
+    <h2 class="text-blue-blue-800">Información sobre la página</h2>
+    <div id="carouselInfo" class="carousel slide rounded mt-3 mb-3">
+        <div class="carousel-inner active align-text-center text-center rounded shadow bg-light">
+            <div class="carousel-item active mt-3 rounded">
+                <h3 class="align-text-bottom mt-3">¿Qué ofrecemos?</h3>
+                <div class="text-center">
+                    <a href="/features"><img src="{% static '/img/shine-chalk-board-with-textbooks-and-ruler-for-math-lesson-1.jpg' %}" class="mb-1 object-fit-cover img-fluid" width="395em" alt="Acceso a la vista Productos"></a>
+                </div>
+                <p class="m-3">Descubre cómo nuestra página web puede ayudarte a tratar la dislexia con nuestros productos y servicios únicos.</p>
+            </div>
+            <div class="carousel-item bg-light mt-3 rounded">
+                <h3 class="align-text-bottom mt-3">¿Cómo detectamos la disexia?</h3>
+                <div class="text-center">
+                    <a href="/test"><img src="{% static '/img/shine-online-video-conference-1.jpg' %}" class="my-4 object-fit-cover img-fluid" width="455em" alt="Acceso a la vista Test"></a>
+                </div>
+                <p class="m-3">Descubre si tienes dislexia con nuestro test de 32 preguntas diseñado para evaluar multiples procesos cognitivos.</p>
+            </div>
+            <div class="carousel-item bg-light mt-3 rounded">
+                <h4 class="align-text-bottom mt-3">¿Se puede tratar la dislexia?</h4>
+                <div class="text-center">
+                    <a href="/practice"><img src="{% static '/img/shine-girl-writing-in-a-notebook.png' %}" class="my-4 object-fit-cover img-fluid" width="460em" alt="Acceso a la vista Práctica"></a>
+                </div>
+                <p class="m-3">Mejora tus habilidades de lectura y comprensión con ejercicios prácticos diseñados para tratar y superar la dislexia.</p>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselInfo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa-solid fa-chevron-left text-dark"></i></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselInfo" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa-solid fa-chevron-right text-dark"></i></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="row mb-4">
+    <h2 class="mt-5 mb-4 text-blue-blue-800">Preguntas frecuentes</h2>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button text-blue-blue-800" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Precisión del modelo de machine learning
+                </button>
+            </h3>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Nuestro modelo de Machine Learning se ha entrenado y testeado con un conjunto de datos obtenidos de un estudio realizado en colegios públicos españoles. Se ha logrado <strong>una precisión del 94%</strong> en la predicción de si una persona tiene o no dislexia. Entendemos que cada caso es diferente y que la precisión puede variar en función de varios factores, por ello, nuestro modelo está en constante mejora gracias al sistema de  retroalimentación que se le ha incorporado. Será capaz de aprender y adaptarse en función de los nuevos datos que se le proporcionen.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed text-blue-blue-800" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Relevancia de los ejercicios prácticos
+                </button>
+            </h3>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Los ejercicios que ofrecemos en nuestra página web están diseñados para trabajar distintos procesos cognitivos, como <strong>la memoria, el procesamiento visual o la conciencia fonológica</strong>. Lo que se pretende es ofrecer ejemplos dinámicos y cercanos de prácticas que pueden realizar los usuario para tratar y superar la dislexia.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed text-blue-blue-800" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Privacidad y seguridad de los datos
+                </button>
+            </h3>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Nos tomamos muy en serio la privacidad y seguridad de los datos de nuestros usuarios. Todos los datos se manejan de acuerdo con las leyes de privacidad aplicables, y se implementan medidas de seguridad técnicas y organizativas para garantizar la protección adecuada de los datos personales. Además, nunca compartimos información de usuario con terceros sin el consentimiento explícito del usuario.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed text-blue-blue-800" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Accesibilidad de la página web
+                </button>
+            </h3>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Hemos trabajado laboriosamente para asegurarnos de que nuestra página web sea accesible para todos los usuarios, incluyendo aquellos con necesidades especiales y discapacidades. Hemos implementado herramientas y tecnologías de accesibilidad, como el soporte de lectores de pantalla, la navegación con teclado y el contraste alto para mejorar la accesibilidad para aquellos con problemas de visión o motrices. Se han estudiado y aplicado a conciencia las pautas especificadas por la <a href="https://www.w3.org/TR/WCAG21/#orientation" class="link-dark" alt="Enlace externo, acceso a la WCAG"> WCAG.</a>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed text-blue-blue-800" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Coste asociado con el uso de la página web
+                </button>
+            </h3>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Actualmente la plataforma está diseñada para ser accesible y gratuita para cualquier usuario registrado que quiera realizar el test de dislexia o practicar con los ejercicios de tratamiento. Sin embargo, es posible que en el futuro se agreguen características o funcionalidades adicionales que requieran de un coste adicional para su uso. En ese caso, se informará a los usuarios de antemano.
+                </div>
+            </div>
+        </div>
+    </div>       
+</div>
+{% endblock %}

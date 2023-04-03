@@ -1,0 +1,81 @@
+{% extends 'prueba/base.html' %}
+{% load static %}
+{% block title %}Test page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item disable">Inicio</li>
+    <li class="breadcrumb-item disable">Test</li>
+    <li class="breadcrumb-item active" aria-current="page">Instrucciones del Test</li>
+{% endblock %}
+
+{% block h1 %}Detección de dislexia{% endblock %}
+
+{% block content %}
+    <h3 class="my-4 text-indigo-indigo-800">Estás apunto de acceder al test de detección de dislexia</h3>
+    <div class="row row-cols-1 g-4">
+        <div class="col my-3">
+            <div class="card text-indigo-indigo-800 shadow border-indigo-indigo-800">
+                <i class="fa-solid fa-person-hiking fs-1 my-3"></i>
+                <div class="card-body">
+                    <p class="card-title text-indigo-indigo-900">Esta prueba consta de 32 preguntas.</p>
+                    <p class="card-text">En todo momento sabrás en que ejercicio te encuentras y el porcentaje de preguntas realizado. Los indicadores se situarán en la parte superior de los enunciados correspondientes a cada ejercicio.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <div class="card text-indigo-indigo-800 shadow border-indigo-indigo-800">
+                <i class="fa-solid fa-rectangle-list fs-1 my-3"></i>
+                <div class="card-body">
+                    <p class="card-title text-indigo-indigo-900">Cada pregunta consta de un enunciado.</p>
+                    <p class="card-text">Antes de la realización de cada ejercicio se accederá a su enunciado correspondiente. Escucharás la acción que hay que realizar en el ejercicio y cuando estés preparado podrás acceder al mismo. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <div class="card text-indigo-indigo-800 shadow border-indigo-indigo-800">
+                <i class="fa-solid fa-clock fs-1 my-3"></i>
+                <div class="card-body">
+                    <p class="card-title text-indigo-indigo-900">Hay cuestiones que requieren tiempo.</p>
+                    <p class="card-text">El temporizador está situado en la parte superior de la cuadrícula. Una vez exprire el tiempo se mostrará una alerta por pantalla indicando que se va a pasar al siguiente ejercicio. Los resultados obtenidos se almacenarán.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <div class="card text-indigo-indigo-800 shadow border-indigo-indigo-800">
+                <i class="fa-solid fa-volume-high fs-1 my-3"></i>
+                <div class="card-body">
+                    <p class="card-title text-indigo-indigo-900">Se requiere el uso del altavoz.</p>
+                    <p class="card-text">Es necesario que compruebes que los altavoces del dispositivo que estás usando funcionan correctamente. Hay ejercicios que van a evaluar la comprensión y conciencia fonológica y por ello debes asegurarte de que puedes escuchar adecuadamente.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-3">
+            <div class="card text-indigo-indigo-800 shadow border-indigo-indigo-800">
+                <i class="fa-solid fa-chart-column fs-1 my-3"></i>
+                <div class="card-body">
+                    <p class="card-title text-indigo-indigo-900">Al finalizar se  mostrarán los resultados.</p>
+                    <p class="card-text">Cuando hayas realizado los 32 ejercicios se indicará de forma clara si tienes o no dislexia. A su vez, se mostrarán los resultados de los ejercicios, exponiendo los fallos y los aciertos de cada uno.</p>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="text-center embed-responsive bg-indigo-indigo-800 rounded">
+            <h5 class="py-4 text-light">Aquí tienes un ejemplo para probar si funciona el audio:</h5>
+            <audio controls class="embed-responsive-item mb-4">
+                <source src="{% static '/audio/audio-prueba.wav' %}" type="audio/wav">
+            </audio>
+        </div>
+    </div>
+    
+    <div class="card text-center my-4 p-0 shadow">
+        <div class="card-body">
+            <h4 class="card-title ext-indigo-indigo-800 my-3">¿Preparado para iniciar el test?</h4>
+            <a href="/prueba/instructions/1" class="btn btn-outline-indigo-800 my-2">Iniciar test</a>
+        </div>
+        <div class="card-footer text-indigo-indigo-700 border-0">
+            ¡Mucha suerte!
+        </div>
+    </div>
+    
+{% endblock %}

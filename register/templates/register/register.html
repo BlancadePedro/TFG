@@ -1,0 +1,93 @@
+{% extends "dyslexia/base.html" %}
+
+{% block title %}Register page | ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">User</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Register</li>
+{% endblock %}
+
+{% block h1 %}Crea una cuenta{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h3 class="mt-3">Crea una cuenta de usuario para poder acceder al contenido de la página web</h3>
+    <h4 class="mt-3">Rellena los campos que se muestran a continuación:</h4>
+    <form method="POST" class="d-grid form-group was-validated mt-3">
+        {% csrf_token %}
+        <div clas="row">
+            <div class="form-group col mb-0">
+                {{ form.username|as_crispy_field}}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group col-lg-6 col-sm-12 mb-0">
+                {{ form.first_name|as_crispy_field}}
+                <small id="hint_id_first_name" class="form-text text-muted">Requerido. 50 carácteres como máximo.</small>
+            </div>
+            <div class="form-group col-lg-6 col-sm-12 mb-0">
+                {{ form.last_name|as_crispy_field }}
+                <small id="hint_id_last_name" class="form-text text-muted">Requerido. 50 carácteres como máximo.</small>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group col mb-0">
+                {{ form.email|as_crispy_field }}
+                <small id="hint_id_email" class="form-text text-muted">Requerido. Necesario que contenga el símbolo @</small>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group col-lg-4 col-sm-12 mb-0">
+                {{ form.edad|as_crispy_field}}
+            </div>
+            <div class="form-group col-lg-4 col-sm-12 mb-0">
+                {{ form.sexo|as_crispy_field }}
+            </div>
+            <div class="form-group col-lg-4 col-sm-12 mb-0">
+                <label for="{{ form.lengua.id_for_label }}">¿Hablas solo un idioma o eres bilingüe?</label>
+                <select name="{{ form.lengua.html_name }}" id="{{ form.lengua.auto_id }}" class="form-control">
+                    <option value="Sí" {% if user.lengua == "Sí" %} selected{% endif %}>Sí, hablo solo español</option>
+                    <option value="No" {% if user.lengua == "No" %} selected{% endif %}>No, soy bilingüe</option>
+                </select>
+            </div>            
+            <div class="form-group col-lg-12 col-sm-12 mb-0">
+                <label for="{{ form.suspender.id_for_label }}">¿Has suspendido alguna asignatura relacionada con la lengua española?</label>
+                <select name="{{ form.suspender.html_name }}" id="{{ form.suspender.auto_id }}" class="form-control">
+                    <option value="Sí" {% if user.suspender == "Sí" %} selected{% endif %}>Sí, he suspendido alguna vez</option>
+                    <option value="No" {% if user.suspender == "No" %} selected{% endif %}>No, no he suspendido nunca</option>
+                </select>
+                <small id="hint_id_suspender" class="form-text text-muted">Especifica si has suspendido alguna vez una asignatura relacionada con Lengua y Literatura.</small>
+            </div>            
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group col-lg-6 col-sm-12 mb-0">
+                {{ form.password1|as_crispy_field}}
+                {% if form.password1.errors %}
+                    <div class="invalid-feedback">
+                        {% for error in form.password1.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group col-lg-6 col-sm-12 mb-0">
+                {{ form.password2|as_crispy_field }}
+                {% if form.password2.errors %}
+                    <div class="invalid-feedback">
+                        {% for error in form.password2.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-success fs-5">Register</button>
+        
+    </form>
+{% endblock %}

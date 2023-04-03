@@ -1,0 +1,43 @@
+{% extends 'prueba/base.html' %}
+{% load static %}
+{% block title %}Test page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item disable">Inicio</li>
+    <li class="breadcrumb-item disable">Test</li>
+    <li class="breadcrumb-item active" aria-current="page">Realización del Test</li>
+{% endblock %}
+
+{% block content %}
+<h2 class="my-3"> {{ exercise.title }} </h2>
+
+<div class="modal fade" id="nextModal" tabindex="-1" aria-labelledby="nextModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" id="modal-container"></div>
+    </div>
+</div>
+<div id="exercise-index" data-index="{{ exercise.id }}"></div>
+<div class="container-fluid p-0 m-0">  
+    <div id="exercise-data"
+        class="d-none"
+        data-letters="{{ exercise.letters|safe }}"
+        data-dim="{{ exercise.dim }}"
+        data-target="{{ exercise.target }}"
+        data-index="{{ exercise.id }}">
+    </div>
+    <div class="card align-self-center p-0">
+        <div class="card-header text-center bg-blue-blue-100">
+            <span id="timer" class="fs-1"></span>
+            <span id="header" class="fs-1"></span>
+        </div>
+        <div class="card-body text-center px-2 pt-3">
+            <table id="tableQ" class="table table-responsive p-0"></table>
+            <h2 class="fs-1 mb-4" id="word"></h2>
+            <div id="letters"></div>
+            <div id="exercise-container"></div>
+            <div id="word-container"></div>
+            <div id="choices-container"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

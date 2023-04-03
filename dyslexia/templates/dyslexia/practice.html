@@ -1,0 +1,73 @@
+{% extends 'dyslexia/base.html' %}
+{% load static %}
+{% block title %}Practice page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Práctica</li>
+{% endblock %}
+
+{% block h1 %}Ejercicios prácticos{% endblock %}
+
+{% block content %}
+<div class="row my-4" id="infoPractica">
+    <h2 class="text-blue-blue-800">Las habiliddaes que se van a evaluar son:</h2>
+    <div class="col-lg-6 col-sm-12 text-center mt-3 align-self-center">
+        <img src="{% static '/img/shine-young-man-works-as-a-programmer-remotely-from-home-1.png' %}" class="object-fit-cover img-fluid" alt="imagen inicio de sesión" width="450em">
+    </div>
+    <div class="col-lg-6 col-sm-12 mt-3 mb-5">
+        <ul class="list-group">
+            <li class="list-group-item border-0 fs-lg-4 fs-sm-5"><i class="fa-solid fa-brain text-blue-blue-800"></i> Memoria y Procesamiento visual. </li>
+            <li class="list-group-item border-0 fs-lg-4 fs-sm-5"><i class="fa-solid fa-puzzle-piece text-blue-blue-800"></i> Clasificación y planificación</li>
+            <li class="list-group-item border-0 fs-lg-4 fs-sm-5"><i class="fa-solid fa-comments text-blue-blue-800"></i> Conciencia y Reconocimiento fonológico</li>
+            <li class="list-group-item border-0 fs-lg-4 fs-sm-5"><i class="fa-solid fa-image text-blue-blue-800"></i> Asociación visual y auditiva</li>
+            <li class="list-group-item border-0 fs-lg-4 fs-sm-5"><i class="fa-solid fa-magnifying-glass text-blue-blue-800"></i> Identificación visual y auditiva</li>
+        </ul>
+    </div>
+</div>
+<br class="my-4">
+<div class="row" id="practica">
+    <h2 class="text-blue-blue-800 mb-3">Repertorio de ejercicios</h2>
+    <h4 class="text-blue-blue-900 mb-5">A continuación, se muestran una serie de ejercicios que ponen en práctica las habilidades expuestas:</h4>
+    <div class="row text-center mb-5">
+        <div class="col-lg-4 col-md-12">
+            <h4>Rompecabezas</h4>
+            <div class="text-center align-self-center my-5">
+                <a href="#"><img src="{% static '/img/shine-young-woman-lies-with-a-phone-in-her-hands.png' %}" class="mb-1 object-fit-cover img-fluid" width="450em" alt="Acceso a la vista Productos"></a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <h4>Juego de la memoria</h4>
+            <div class="text-center align-self-center my-4">
+                <a href="#"><img src="{% static '/img/shine-red-hair-young-woman.png' %}" class="mb-1 object-fit-cover img-fluid" width="250em" alt="Acceso a la vista Productos"></a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <h4>Tres en raya</h4>
+            <div class="text-center align-self-center my-4">
+                <a href="#"><img src="{% static '/img/shine-young-man-thinking.png' %}" class="mb-1 object-fit-cover img-fluid" width="200em" alt="Acceso a la vista Productos"></a>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-4 col-md-12">
+            <h4>Reordenar la palabra</h4>
+            <div class="text-center my-4">
+                <a href="#"><img src="{% static '/img/shine-young-woman-sitting-with-her-hand-on-her-chin.png' %}" class="mb-1 object-fit-cover img-fluid" width="275em" alt="Acceso a la vista Productos"></a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <h4>Asociar audio e imagen</h4>
+            <div class="text-center my-4">
+                <a href="#"><img src="{% static '/img/shine-young-woman-sitting-on-the-floor.png' %}" class="mb-1 object-fit-cover img-fluid" width="390em" alt="Acceso a la vista Productos"></a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <h4>Reconocimiento auditivo</h4>
+            <div class="text-center my-4">
+                <a href="#"><img src="{% static '/img/shine-young-blonde-girl.png' %}" class="mb-1 object-fit-cover img-fluid" width="250em" alt="Acceso a la vista Productos"></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
