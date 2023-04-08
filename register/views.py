@@ -5,9 +5,13 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .forms import ProfileForm, UpdateUsernameForm, UpdateFirstNameForm, UpdateLastNameForm, UpdateEmailNameForm, UpdateAgeNameForm, UpdateSexNameForm, UpdateLanguageNameForm, UpdateFailNameForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django .views.generic.edit import DeleteView
+
 from .models import Profile
-from django.http import HttpResponseForbidden
+
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+
+
 
 
 def register(response):
@@ -74,7 +78,7 @@ def delete(request,user_id):
 
 
 
-def password(request):
+def password_change(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -86,6 +90,4 @@ def password(request):
             messages.error(request, 'Por favor, corrige los errores.')
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'register/password.html', {'form': form})
-
-
+    return render(request, 'register/password_change.html', {'form': form})

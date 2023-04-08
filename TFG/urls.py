@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from register import views as register_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('', include("dyslexia.urls")),
+    path('', include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
     path("register/", register_views.register, name="register"),
+    path('password_reset/',auth_views.PasswordResetView.as_view(template_name="register/password_reset.html"), name="password_reset"),
+    path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(template_name="register/password_reset_done.html"), name="password_reset_done"),
+    path('password_reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name="register/password_reset_confirm.html"), name="password_reset_confirm"),
+    path('password_reset_complete/',auth_views.PasswordResetCompleteView.as_view(template_name="register/password_reset_complete.html"),name="password_reset_complete"),
     path("register/", include("register.urls")),
     path("prueba/", include("prueba.urls")),
     path("practica/", include("practica.urls")),
-    path('', include("dyslexia.urls")),
-    path('', include("django.contrib.auth.urls")),
 ]
