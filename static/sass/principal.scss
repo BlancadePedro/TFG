@@ -17,9 +17,6 @@ $greens: ( "100": $green-100, "200": $green-200, "300": $green-300, "400": $gree
 $teals: ( "100": $teal-100, "200": $teal-200, "300": $teal-300, "400": $teal-400, "500": $teal-500, "600": $teal-600, "700": $teal-700, "800": $teal-800, "900": $teal-900) !default;
 $cyans: ( "100": $cyan-100, "200": $cyan-200, "300": $cyan-300, "400": $cyan-400, "500": $cyan-500, "600": $cyan-600, "700": $cyan-700, "800": $cyan-800, "900": $cyan-900) !default;
 
-body {
-  font-family:"Open Sans" !important;
-}
 
 @each $key, $value in $blues {
   .bg-blue-#{$key}{

@@ -1,0 +1,30 @@
+html,body
+    {
+        font-family:opendyslexic;
+        line-height: 200%;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+
+/* Estilos para los diferentes tamaños de fuente */
+.font-size-1 { font-size: 75%; }
+.font-size-2 { font-size: 80%; }
+.font-size-3 { font-size: 100%; } /* tamaño por defecto */
+.font-size-4 { font-size: 125%; }
+.font-size-5 { font-size: 150%; }
+
+/* Estilos para los diferentes tipos de fuente */
+.font-family-1 { font-family: 'OpenDyslexic'; } /* actual */
+.font-family-2 { font-family: 'Montserrat'; }
+.font-family-3 { font-family: 'Verdana'; }
+.font-family-4 { font-family: 'Times New Roman'; }
+
+/* Estilos para el interlineado */
+.line-height-1 { line-height: 200%; } /* interlineado normal */
+.line-height-2 { line-height: 400%; } /* interlineado aumentado */
+
+.cursor-1 {cursor: default; }
+.cursor-2 {cursor: pointer; }
