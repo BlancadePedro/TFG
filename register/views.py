@@ -7,8 +7,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Profile
-
-from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 
@@ -77,7 +75,6 @@ def delete(request,user_id):
     return render(request, "dyslexia/home.html")
 
 
-
 def password_change(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -91,3 +88,5 @@ def password_change(request):
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'register/password_change.html', {'form': form})
+
+
