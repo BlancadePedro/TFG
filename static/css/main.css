@@ -11887,177 +11887,177 @@ textarea.form-control-lg {
 }
 
 .fs-1 {
-  font-size: calc(1.375rem + 1.5vw) !important;
+  font-size: calc(1.375rem + 1.5vw);
 }
 
 .fs-2 {
-  font-size: calc(1.325rem + 0.9vw) !important;
+  font-size: calc(1.325rem + 0.9vw);
 }
 
 .fs-3 {
-  font-size: calc(1.3rem + 0.6vw) !important;
+  font-size: calc(1.3rem + 0.6vw);
 }
 
 .fs-4 {
-  font-size: calc(1.275rem + 0.3vw) !important;
+  font-size: calc(1.275rem + 0.3vw);
 }
 
 .fs-5 {
-  font-size: 1.25rem !important;
+  font-size: 1.25rem;
 }
 
 .fs-6 {
-  font-size: 1rem !important;
+  font-size: 1rem;
 }
 
 @media (min-width: 576px) {
   .fs-sm-1 {
-    font-size: calc(1.375rem + 1.5vw) !important;
+    font-size: calc(1.375rem + 1.5vw);
   }
   .fs-sm-2 {
-    font-size: calc(1.325rem + 0.9vw) !important;
+    font-size: calc(1.325rem + 0.9vw);
   }
   .fs-sm-3 {
-    font-size: calc(1.3rem + 0.6vw) !important;
+    font-size: calc(1.3rem + 0.6vw);
   }
   .fs-sm-4 {
-    font-size: calc(1.275rem + 0.3vw) !important;
+    font-size: calc(1.275rem + 0.3vw);
   }
   .fs-sm-5 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
   }
   .fs-sm-6 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 @media (min-width: 768px) {
   .fs-md-1 {
-    font-size: calc(1.375rem + 1.5vw) !important;
+    font-size: calc(1.375rem + 1.5vw);
   }
   .fs-md-2 {
-    font-size: calc(1.325rem + 0.9vw) !important;
+    font-size: calc(1.325rem + 0.9vw);
   }
   .fs-md-3 {
-    font-size: calc(1.3rem + 0.6vw) !important;
+    font-size: calc(1.3rem + 0.6vw);
   }
   .fs-md-4 {
-    font-size: calc(1.275rem + 0.3vw) !important;
+    font-size: calc(1.275rem + 0.3vw);
   }
   .fs-md-5 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
   }
   .fs-md-6 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 @media (min-width: 992px) {
   .fs-lg-1 {
-    font-size: calc(1.375rem + 1.5vw) !important;
+    font-size: calc(1.375rem + 1.5vw);
   }
   .fs-lg-2 {
-    font-size: calc(1.325rem + 0.9vw) !important;
+    font-size: calc(1.325rem + 0.9vw);
   }
   .fs-lg-3 {
-    font-size: calc(1.3rem + 0.6vw) !important;
+    font-size: calc(1.3rem + 0.6vw);
   }
   .fs-lg-4 {
-    font-size: calc(1.275rem + 0.3vw) !important;
+    font-size: calc(1.275rem + 0.3vw);
   }
   .fs-lg-5 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
   }
   .fs-lg-6 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 @media (min-width: 1200px) {
   .fs-xl-1 {
-    font-size: calc(1.375rem + 1.5vw) !important;
+    font-size: calc(1.375rem + 1.5vw);
   }
   .fs-xl-2 {
-    font-size: calc(1.325rem + 0.9vw) !important;
+    font-size: calc(1.325rem + 0.9vw);
   }
   .fs-xl-3 {
-    font-size: calc(1.3rem + 0.6vw) !important;
+    font-size: calc(1.3rem + 0.6vw);
   }
   .fs-xl-4 {
-    font-size: calc(1.275rem + 0.3vw) !important;
+    font-size: calc(1.275rem + 0.3vw);
   }
   .fs-xl-5 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
   }
   .fs-xl-6 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 @media (min-width: 1400px) {
   .fs-xxl-1 {
-    font-size: calc(1.375rem + 1.5vw) !important;
+    font-size: calc(1.375rem + 1.5vw);
   }
   .fs-xxl-2 {
-    font-size: calc(1.325rem + 0.9vw) !important;
+    font-size: calc(1.325rem + 0.9vw);
   }
   .fs-xxl-3 {
-    font-size: calc(1.3rem + 0.6vw) !important;
+    font-size: calc(1.3rem + 0.6vw);
   }
   .fs-xxl-4 {
-    font-size: calc(1.275rem + 0.3vw) !important;
+    font-size: calc(1.275rem + 0.3vw);
   }
   .fs-xxl-5 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
   }
   .fs-xxl-6 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 @media (min-width: 1200px) {
   .fs-1 {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   .fs-2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
   .fs-3 {
-    font-size: 1.75rem !important;
+    font-size: 1.75rem;
   }
   .fs-4 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
   .fs-sm-1 {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   .fs-sm-2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
   .fs-sm-3 {
-    font-size: 1.75rem !important;
+    font-size: 1.75rem;
   }
   .fs-sm-4 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
   .fs-md-1 {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   .fs-md-2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
   .fs-md-3 {
-    font-size: 1.75rem !important;
+    font-size: 1.75rem;
   }
   .fs-md-4 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
   .fs-lg-1 {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   .fs-lg-2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
   .fs-lg-3 {
-    font-size: 1.75rem !important;
+    font-size: 1.75rem;
   }
   .fs-lg-4 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
 }
 

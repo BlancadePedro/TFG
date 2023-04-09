@@ -16,8 +16,8 @@
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
     <!-- Optional CSS files -->
-    <link href="{% static '/css/opendyslexic.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static '/css/principal.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/fontopendyslexic.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static '/css/style.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static '/css/accesibility.css' %}" rel="stylesheet" type="text/css">
     <!--Font Awesome JS-->
@@ -77,52 +77,46 @@
                 {% endif %}
               </ul>
             </li> 
-          </ul>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            
-            <li class="nav-item">
-              <li class="nav-item dropdown">
-                <!--Accisibility-->
-                <a class="btn btn-outline-blue-800" href="#" role="button" data-bs-toggle="dropdown">
-                  <i class="fa-solid fa-screwdriver-wrench"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- Tamaño de fuente -->
-                  <li class="dropdown-item">
-                    <label for="font-size">Tamaño de fuente:</label>
-                    <input type="range" id="font-size" name="font-size" min="1" max="5" step="1" value="3">
-                  </li>
-  
-                  <!-- Tipo de fuente -->
-                  <li class="dropdown-item">
-                    <select class="btn" id="font-family" name="font-family">
-                      <option> Tipo de fuente </option>
-                      <option value="1">OpenDyslexic</option>
-                      <option value="2">Montserrat</option>
-                      <option value="3">Verdana</option>
-                      <option value="4">Times New Roman</option>
-                    </select>
-                  </li>
-                
-                  <!-- Interlineado -->
-                  <li class="dropdown-item">
-                    <button class="btn" id="toggle-line-height">Cambiar interlineado</button>
-                  </li>
-                
-                  <!-- Tamaño del cursor -->
-                  <li class="dropdown-item">
-                    <button class="btn" id="toggle-cursor-size">Cambiar tamaño del cursor</button>
-                  </li>
-                </ul>
-              </li>
-              <!--Form-->
-              <form class="nav-item d-flex mb-2 mb-lg-0" role="search">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-blue-800" type="submit"><i class="fa fa-search"></i></button>
-              </form>
+            <!--Accisibility-->
+            <li class="nav-item dropdown">
+              <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown">
+                <i class="fa-solid fa-screwdriver-wrench text-blue-blue-800"></i> Ajustes
+              </a>
+              <ul class="dropdown-menu">
+                <!-- Tamaño de fuente -->
+                <li class="dropdown-item">
+                  <label class="form-label" for="font-size">Tamaño de fuente</label>
+                  <input class="form-range" type="range" id="font-size" name="font-size" min="1" max="5" step="1" value="3">
+                </li>
 
+                <!-- Tipo de fuente -->
+                <li class="dropdown-item">
+                  <select class="form-select" id="font-family" name="font-family">
+                    <option selected> Tipo de fuente </option>
+                    <option value="1">OpenDyslexic</option>
+                    <option value="2">Montserrat</option>
+                    <option value="3">Verdana</option>
+                    <option value="4">Times New Roman</option>
+                  </select>
+                </li>
+              
+                <!-- Interlineado -->
+                <li class="dropdown-item">
+                  <button class="btn btn-outline-blue-600" id="toggle-line-height">Cambiar interlineado</button>
+                </li>
+              
+                <!-- Tamaño del cursor -->
+                <li class="dropdown-item">
+                  <button class="btn btn-outline-blue-600" id="toggle-cursor-size">Cambiar tamaño del cursor</button>
+                </li>
+              </ul>
             </li>
-          </ul>        
+          </ul>  
+          <!--Form-->
+          <form class="nav-item d-flex mb-2 mb-lg-0" role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-blue-800" type="submit"><i class="fa fa-search"></i></button>
+          </form>         
         </div>
       </div>
     </nav>
@@ -227,7 +221,7 @@
       </div>
     </footer>
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="{% static '/js/accesibilidad.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/accesibility.js' %}"></script>
     <!-- jQuery -->
     <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <!-- Bootstrap JS bundle with Popper.js -->

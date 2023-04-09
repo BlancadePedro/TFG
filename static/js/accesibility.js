@@ -1,4 +1,5 @@
 // Aumentar o disminuir el tamaño de la fuente
+console.log(1111)
 
 function saveSettings() {
     localStorage.setItem('fontSize', $('#font-size').val());
@@ -9,28 +10,28 @@ function saveSettings() {
 
 
 function changeFontSize(size) {
-    $('body, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a').removeClass('font-size-1 font-size-2 font-size-3 font-size-4 font-size-5')
+    $('body, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('font-size-1 font-size-2 font-size-3 font-size-4 font-size-5')
         .addClass('font-size-' + size);
         console.log('font-size-' + size)
     }
 
     // Cambiar el tipo de fuente
 function changeFontFamily(font) {
-    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input').removeClass('font-family-1 font-family-2 font-family-3 font-family-4')
+    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('font-family-1 font-family-2 font-family-3 font-family-4')
         .addClass('font-family-' + font);
         console.log('font-family-' + font)
     }
 
     // Aumentar o disminuir el interlineado
 function changeLineHeight(lineHeight) {
-    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input').removeClass('line-height-1 line-height-2')
+    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('line-height-1 line-height-2')
         .addClass('line-height-' + lineHeight);
         console.log('line-height-' + lineHeight)
     }
 
     // Aumentar o disminuir el tamaño del cursor
 function changeCursorSize(cursor) {
-    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input').removeClass('cursor-1 cursor-2')
+    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('cursor-1 cursor-2')
         .addClass('cursor-' + cursor);
         console.log('cursor-' + cursor)
 }

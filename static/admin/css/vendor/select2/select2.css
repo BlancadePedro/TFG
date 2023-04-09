@@ -116,16 +116,16 @@
   filter: alpha(opacity=0); }
 
 .select2-hidden-accessible {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; }
+  border: 0  ;
+  clip: rect(0 0 0 0)  ;
+  -webkit-clip-path: inset(50%)  ;
+  clip-path: inset(50%)  ;
+  height: 1px  ;
+  overflow: hidden  ;
+  padding: 0  ;
+  position: absolute  ;
+  width: 1px  ;
+  white-space: nowrap  ; }
 
 .select2-container--default .select2-selection--single {
   background-color: #fff;
