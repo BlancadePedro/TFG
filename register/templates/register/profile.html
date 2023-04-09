@@ -111,16 +111,35 @@
             </form>
         </div>         
     </div>
-    <form method="post" action="{% url 'register:delete' user.id %}">
+    <form id="delete-account-form" method="post" action="{% url 'register:delete' user.id %}">
         {% csrf_token %}
         <div class="row m-0">
             <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
-                <button type="submit" class="btn btn-outline-red-600 fs-lg-3 fs-sm-5"> <i class="fa-solid fa-trash fs-lg-3 fs-sm-5"></i> Eliminar cuenta</button>
+                <button type="button" class="btn btn-outline-red-600 fs-lg-3 fs-sm-5" data-bs-toggle="modal" data-bs-target="#deleteAccountModal"> <i class="fa-solid fa-trash fs-lg-3 fs-sm-5"></i> Eliminar cuenta</button>
             </div>
-        </form>
-        <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
-            <a href="{% url 'register:password_change' %}" class="btn btn-outline-cyan-700 fs-lg-3 fs-sm-5"> <i class="fa-solid fa-lock fs-lg-3 fs-sm-5"></i> Resetear contraseña</a>
+    </form>
+    <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
+        <a href="{% url 'register:password_change' %}" class="btn btn-outline-cyan-700 fs-lg-3 fs-sm-5"> <i class="fa-solid fa-lock fs-lg-3 fs-sm-5"></i> Resetear contraseña</a>
+    </div>
+       
+    <!-- Modal -->
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-blue-100">
+                    <h5 class="modal-title text-blue-blue-700" id="deleteAccountModalLabel">Eliminar cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Está seguro que quiere eliminar su cuenta?</p>
+                    <p>Esta acción no se puede deshacer y perderá todos sus datos.</p>
+                </div>
+                <div class="modal-footer bg-blue-blue-100">
+                    <button type="button" class="btn btn-outline-blue-700" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-outline-blue-500">Eliminar cuenta</button>
+                </div>
+            </div>
         </div>
-    </div>    
+    </div>
 </div>
 {% endblock %}

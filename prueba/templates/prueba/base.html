@@ -35,40 +35,52 @@
 
         <!-- Buttons container -->
         <div class="button-container" style="display: flex; align-items: center;">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-outline-indigo-700" data-bs-toggle="modal" data-bs-target="#exitModal" title="Salir"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
-          
           <!--Accesibility-->
           <div class="btn dropdown">
-            <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-screwdriver-wrench text-blue-blue-800"></i> 
+            <a class="btn btn-outline-indigo-700" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-screwdriver-wrench"></i> Ajustes
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-start">
               <!-- Tamaño de fuente -->
               <li class="dropdown-item">
-                <label for="font-size">Tamaño de fuente:</label>
-                <input type="range" id="font-size" name="font-size" min="1" max="5" step="1" value="3">
+                <div>
+                  <label class="form-label" for="font-size">Tamaño de fuente</label>
+                </div>
+                <div>
+                  <input class="form-range" type="range" id="font-size" name="font-size" min="1" max="5" step="1" value="3">
+                </div>
               </li>
+
               <!-- Tipo de fuente -->
               <li class="dropdown-item">
-                <select class="btn" id="font-family" name="font-family">
-                  <option> Tipo de fuente </option>
-                  <option value="1">OpenDyslexic</option>
-                  <option value="2">Montserrat</option>
-                  <option value="3">Verdana</option>
-                  <option value="4">Times New Roman</option>
+                <select class="form-select" id="font-family" name="font-family">
+                  <option selected> Tipo de fuente </option>
+                  <option class="text-font-opendyslexic" value="1">OpenDyslexic</option>
+                  <option class="text-font-monserrat" value="2">Montserrat</option>
+                  <option class="text-font-open-sans" value="3">Open Sans</option>
+                  <option class="text-font-roboto" value="4">Roboto</option>
+                  <option class="text-font-lato" value="5">Lato</option>
                 </select>
               </li>
+            
               <!-- Interlineado -->
               <li class="dropdown-item">
-                <button class="btn" id="toggle-line-height">Cambiar interlineado</button>
+                <div>
+                  <label class="form-label" for="line-height">Interlineado</label>
+                </div>
+                <div>
+                  <input class="form-range" type="range" id="line-height" name="line-height" min="1" max="3" step="1" value="2">
+                </div>
               </li>
+            
               <!-- Tamaño del cursor -->
               <li class="dropdown-item">
-                <button class="btn" id="toggle-cursor-size">Cambiar tamaño del cursor</button>
+                <button class="btn btn-outline-blue-600" id="toggle-cursor-size">Cambiar tamaño del cursor</button>
               </li>
             </ul>
           </div>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-indigo-700" data-bs-toggle="modal" data-bs-target="#exitModal" title="Salir"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</button>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exitModalLabel" aria-hidden="true">

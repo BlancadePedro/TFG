@@ -1,4 +1,4 @@
-html,body
+html
 {
     font-family: 'OpenDyslexic' !important;
     width: 100%;
@@ -16,11 +16,13 @@ html,body
 
 .font-family-1 { font-family: 'OpenDyslexic' !important; } /* actual */
 .font-family-2 { font-family: 'Montserrat' !important; }
-.font-family-3 { font-family: 'Verdana' !important; }
-.font-family-4 { font-family: 'Times New Roman' !important; }
+.font-family-3 { font-family: 'Open Sans' !important; }
+.font-family-4 { font-family: 'Roboto' !important; }
+.font-family-5 { font-family: 'Lato' !important; }
 
-.line-height-1 { line-height: 150% ; } /* interlineado normal */
+.line-height-1 { line-height: 100% ; } /* interlineado normal */
 .line-height-2 { line-height: 200% ; } /* interlineado aumentado */
+.line-height-3 { line-height: 300% ; } /* interlineado aumentado */
 
 .cursor-1 { cursor: default ; }
 .cursor-2 { cursor: pointer ; }

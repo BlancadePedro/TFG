@@ -4,37 +4,51 @@ console.log(1111)
 function saveSettings() {
     localStorage.setItem('fontSize', $('#font-size').val());
     localStorage.setItem('fontFamily', $('#font-family').val());
-    localStorage.setItem('lineHeight', lineHeightState);
+    localStorage.setItem('lineHeight', $('#line-height').val());
     localStorage.setItem('cursorSize', cursorSizeState);
 }
 
 
 function changeFontSize(size) {
-    $('body, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('font-size-1 font-size-2 font-size-3 font-size-4 font-size-5')
+    $('html').removeClass('font-size-1 font-size-2 font-size-3 font-size-4 font-size-5')
         .addClass('font-size-' + size);
         console.log('font-size-' + size)
-    }
+}
 
-    // Cambiar el tipo de fuente
 function changeFontFamily(font) {
-    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('font-family-1 font-family-2 font-family-3 font-family-4')
-        .addClass('font-family-' + font);
-        console.log('font-family-' + font)
-    }
+    $('body, html').removeClass('text-font-opendyslexic text-font-monserrat text-font-open-sans text-font-roboto text-font-lato');
 
-    // Aumentar o disminuir el interlineado
+    switch (font) {
+        case "1":
+            $('body, html').addClass('text-font-opendyslexic');
+            break;
+        case "2":
+            $('body, html').addClass('text-font-monserrat');
+            break;
+        case "3":
+            $('body, html').addClass('text-font-open-sans');
+            break;
+        case "4":
+            $('body, html').addClass('text-font-roboto');
+            break;
+        case "5":
+            $('body, html').addClass('text-font-lato');
+            break;
+    }
+}
+
 function changeLineHeight(lineHeight) {
-    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('line-height-1 line-height-2')
+    $('body, html').removeClass('line-height-1 line-height-2 line-height-3')
         .addClass('line-height-' + lineHeight);
         console.log('line-height-' + lineHeight)
-    }
+}
 
-    // Aumentar o disminuir el tamaño del cursor
 function changeCursorSize(cursor) {
-    $('body, h1, h2, h3, h4, h5, h6, list-group, list-group-item, accordion-header, accordion-button, li, button, input, a, label').removeClass('cursor-1 cursor-2')
+    $('html').removeClass('cursor-1 cursor-2')
         .addClass('cursor-' + cursor);
         console.log('cursor-' + cursor)
 }
+
 
 function loadSettings() {
     const savedFontSize = localStorage.getItem('fontSize');
@@ -53,8 +67,8 @@ function loadSettings() {
     }
 
     if (savedLineHeight) {
-        lineHeightState = parseInt(savedLineHeight, 10);
-        changeLineHeight(lineHeightState);
+        $('#line-height').val(savedLineHeight);
+        changeLineHeight(savedLineHeight);
     }
 
     if (savedCursorSize) {
@@ -64,15 +78,14 @@ function loadSettings() {
 }
 
 
+
 $(document).ready(function () {
-    // Variables para controlar el interlineado y el tamaño del cursor
-let lineHeightState = 1;
 let cursorSizeState = 1;
 
 function saveSettings() {
     localStorage.setItem('fontSize', $('#font-size').val());
     localStorage.setItem('fontFamily', $('#font-family').val());
-    localStorage.setItem('lineHeight', lineHeightState);
+    localStorage.setItem('lineHeight', $('#line-height').val());
     localStorage.setItem('cursorSize', cursorSizeState);
 }
 
@@ -93,8 +106,8 @@ function loadSettings() {
     }
 
     if (savedLineHeight) {
-        lineHeightState = parseInt(savedLineHeight, 10);
-        changeLineHeight(lineHeightState);
+        $('#font-family').val(savedLineHeight);
+        changeLineHeight(savedLineHeight);
     }
 
     if (savedCursorSize) {
@@ -119,9 +132,8 @@ $(document).ready(function () {
     });
 
     // Cambiar el interlineado
-    $('#toggle-line-height').on('click', function () {
-        lineHeightState = 3 - lineHeightState; // Cambia entre 1 y 2
-        changeLineHeight(lineHeightState);
+    $('#line-height').on('change', function () {
+        changeLineHeight(this.value);
         saveSettings();
     });
 
