@@ -23,7 +23,7 @@
 </div>
 <div class="row card text-blue-blue-800 shadow py-3" id="infoUser">
     <div class="row m-0">
-        <div class="form-group col-lg-6 col-md-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-6 col-md-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="username" class="fs-lg-3 fs-sm-6" id="usuario">Nombre de usuario: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -34,7 +34,7 @@
         </div>
     </div>       
     <div class="row m-0">
-        <div class="form-group col-lg-6 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-6 col-sm-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="first_name" class="fs-lg-3 fs-sm-5" id="nombre">Nombre: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -43,7 +43,7 @@
                 <button type="submit" class="btn btn-outline-blue-800" name="editar_nombre"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
             </form>
         </div>
-        <div class="form-group col-lg-6 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-6 col-sm-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="last_name" class="fs-lg-3 fs-sm-5" id="apellidos">Apellidos: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="row m-0">
-        <div class="form-group col mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="email" class="fs-lg-3 fs-sm-5" id="correo">Correo: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -65,7 +65,7 @@
         </div>
     </div>
     <div class="row m-0">
-        <div class="form-group col-lg-3 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-3 col-sm-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="edad" class="fs-lg-3 fs-sm-5" id="edad">Edad: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -74,7 +74,7 @@
                 <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_edad"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
             </form>
         </div>
-        <div class="form-group col-lg-3 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-3 col-sm-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="sexo" class="fs-lg-3 fs-sm-5" id="sexo">Sexo: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -86,7 +86,7 @@
                 <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_sexo"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
             </form>
         </div>        
-        <div class="form-group col-lg-6 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-6 col-sm-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="lengua" class="fs-lg-3 fs-sm-5" id="lengua">Hablas solo un idioma (español): </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -98,7 +98,7 @@
                 <button type="submit" class="btn btn-outline-blue-800 fs-lg-4 fs-sm-6" name="editar_lengua"><i class="fa-solid fa-pencil fs-lg-4 fs-sm-6"></i></button>
             </form>
         </div>
-        <div class="form-group col-lg-12 col-sm-12 mb-0 fs-lg-4 fs-sm-6 text-blue-blue-800">
+        <div class="form-group col-lg-12 col-sm-12 mb-1 mt-3 fs-lg-4 fs-sm-6 text-blue-blue-800">
             <label for="suspender" class="fs-lg-3 fs-sm-5" id="lengua">Has suspendido alguna vez una asignatura relacionada con la lengua española: </label>
             <form method="post" class="d-flex">
                 {% csrf_token %}
@@ -116,7 +116,8 @@
         <div class="row m-0">
             <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
                 <button type="button" class="btn btn-outline-red-600 fs-lg-3 fs-sm-5" data-bs-toggle="modal" data-bs-target="#deleteAccountModal"> <i class="fa-solid fa-trash fs-lg-3 fs-sm-5"></i> Eliminar cuenta</button>
-            </div>
+        </div>
+        
     </form>
     <div class="form-group col-lg-6 col-sm-12 mb-3 mt-5 text-center">
         <a href="{% url 'register:password_change' %}" class="btn btn-outline-cyan-700 fs-lg-3 fs-sm-5"> <i class="fa-solid fa-lock fs-lg-3 fs-sm-5"></i> Resetear contraseña</a>

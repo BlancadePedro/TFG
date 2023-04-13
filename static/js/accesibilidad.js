@@ -1,10 +1,13 @@
 // Aumentar o disminuir el tamaño de la fuente
 console.log(1111)
 
+let cursorSizeState = 1;
+
 function saveSettings() {
     localStorage.setItem('fontSize', $('#font-size').val());
     localStorage.setItem('fontFamily', $('#font-family').val());
     localStorage.setItem('lineHeight', $('#line-height').val());
+    localStorage.setItem('letterSpacing', $('#letter-spacing').val());
     localStorage.setItem('cursorSize', cursorSizeState);
 }
 
@@ -16,44 +19,51 @@ function changeFontSize(size) {
 }
 
 function changeFontFamily(font) {
-    $('body, html').removeClass('text-font-opendyslexic text-font-monserrat text-font-open-sans text-font-roboto text-font-lato');
+    $('body, html').removeClass('font-family-1 font-family-2 font-family-3 font-family-4 font-family-5');
 
     switch (font) {
         case "1":
-            $('body, html').addClass('text-font-opendyslexic');
+            $('body, html').addClass('font-family-1');
             break;
         case "2":
-            $('body, html').addClass('text-font-monserrat');
+            $('body, html').addClass('font-family-2');
             break;
         case "3":
-            $('body, html').addClass('text-font-open-sans');
+            $('body, html').addClass('font-family-3');
             break;
         case "4":
-            $('body, html').addClass('text-font-roboto');
+            $('body, html').addClass('font-family-4');
             break;
         case "5":
-            $('body, html').addClass('text-font-lato');
+            $('body, html').addClass('font-family-5');
             break;
     }
+    console.log('font-font-' + font)
 }
 
 function changeLineHeight(lineHeight) {
-    $('body, html').removeClass('line-height-1 line-height-2 line-height-3')
+    $('html, body').removeClass('line-height-1 line-height-2 line-height-3')
         .addClass('line-height-' + lineHeight);
         console.log('line-height-' + lineHeight)
 }
 
 function changeCursorSize(cursor) {
-    $('html').removeClass('cursor-1 cursor-2')
-        .addClass('cursor-' + cursor);
-        console.log('cursor-' + cursor)
+    $('body, html').removeClass('cursor-1 cursor-2 cursor-3 cursor-4')
+      .addClass('cursor-' + cursor);
+        console.log('cursor-' + cursor);
 }
-
+  
+function changeLetterSpacing(letterSpacing) {
+    $('html').removeClass('letter-spacing-1 letter-spacing-2 letter-spacing-3')
+        .addClass('letter-spacing-' + letterSpacing);
+        console.log('letter-spacing-' + letterSpacing);
+}
 
 function loadSettings() {
     const savedFontSize = localStorage.getItem('fontSize');
     const savedFontFamily = localStorage.getItem('fontFamily');
     const savedLineHeight = localStorage.getItem('lineHeight');
+    const savedLetterSpacing = localStorage.getItem('letterSpacing');
     const savedCursorSize = localStorage.getItem('cursorSize');
 
     if (savedFontSize) {
@@ -71,21 +81,30 @@ function loadSettings() {
         changeLineHeight(savedLineHeight);
     }
 
+    if (savedLetterSpace){
+        $('#letter-spacing').val(savedLetterSpacing);
+        changeLetterSpacing(savedLetterSpacing);
+    }
+
     if (savedCursorSize) {
         cursorSizeState = parseInt(savedCursorSize, 10);
         changeCursorSize(cursorSizeState);
     }
 }
 
+function nextCursor() {
+    cursorSizeState = (cursorSizeState % 4) + 1;
+    changeCursorSize(cursorSizeState);
+}
 
 
 $(document).ready(function () {
-let cursorSizeState = 1;
 
 function saveSettings() {
     localStorage.setItem('fontSize', $('#font-size').val());
     localStorage.setItem('fontFamily', $('#font-family').val());
     localStorage.setItem('lineHeight', $('#line-height').val());
+    localStorage.setItem('letterSpacing', $('#letter-spacing').val());
     localStorage.setItem('cursorSize', cursorSizeState);
 }
 
@@ -93,6 +112,7 @@ function loadSettings() {
     const savedFontSize = localStorage.getItem('fontSize');
     const savedFontFamily = localStorage.getItem('fontFamily');
     const savedLineHeight = localStorage.getItem('lineHeight');
+    const savedLetterSpacing = localStorage.getItem('letterSpacing');
     const savedCursorSize = localStorage.getItem('cursorSize');
 
     if (savedFontSize) {
@@ -110,7 +130,13 @@ function loadSettings() {
         changeLineHeight(savedLineHeight);
     }
 
-    if (savedCursorSize) {
+    if (savedLetterSpacing) {
+        $('#letter-spacing').val(savedLetterSpacing);
+        changeLetterSpacing(savedLetterSpacing);
+      }
+    
+
+      if (savedCursorSize) {
         cursorSizeState = parseInt(savedCursorSize, 10);
         changeCursorSize(cursorSizeState);
     }
@@ -137,13 +163,17 @@ $(document).ready(function () {
         saveSettings();
     });
 
+    // Cambiar el espacio entre letras
+    $('#letter-spacing').on('change', function () {
+        changeLetterSpacing(this.value);
+        saveSettings();
+    });
+
     // Cambiar el tamaño del cursor
-    $('#toggle-cursor-size').on('click', function () {
-        cursorSizeState = 3 - cursorSizeState; // Cambia entre 1 y 2
-        changeCursorSize(cursorSizeState);
+    $('#change-cursor').on('click', function () {
+        nextCursor();
         saveSettings();
     });
 });
 
 });
-

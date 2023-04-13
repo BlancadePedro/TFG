@@ -19,7 +19,7 @@
     <link href="{% static '/css/fontopendyslexic.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static '/css/style.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static '/css/accesibility.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/accesibilidad.css' %}" rel="stylesheet" type="text/css">
     <!--Font Awesome JS-->
     <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
     <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
@@ -100,7 +100,8 @@
                   </div>
                   <div>
                     <select class="form-select" id="font-family" name="font-family">
-                      <option selected class="text-font-opendyslexic" value="1">OpenDyslexic</option>
+                      <option class="text-font-open-sans" selected>Fuentes disponibles</option>
+                      <option class="text-font-opendyslexic" value="1" >OpenDyslexic</option>
                       <option class="text-font-monserrat" value="2">Montserrat</option>
                       <option class="text-font-open-sans" value="3">Open Sans</option>
                       <option class="text-font-roboto" value="4">Roboto</option>
@@ -119,9 +120,19 @@
                   </div>
                 </li>
               
+                <!-- Espaciado entre letras -->
+                <li class="dropdown-item">
+                  <div>
+                    <label class="form-label" for="letter-spacing">Espaciado entre letras</label>
+                  </div>
+                  <div>
+                    <input class="form-range" type="range" id="letter-spacing" name="letter-spacing" min="1" max="3" step="1" value="1">
+                  </div>
+                </li>
+
                 <!-- Tamaño del cursor -->
                 <li class="dropdown-item">
-                  <button class="btn btn-outline-blue-600" id="toggle-cursor-size">Cambiar tamaño del cursor</button>
+                  <button class="btn btn-outline-blue-600 w-100" id="change-cursor">Cambiar el cursor</button>
                 </li>
               </ul>
             </li>
@@ -235,7 +246,7 @@
       </div>
     </footer>
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="{% static '/js/accesibility.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/accesibilidad.js' %}"></script>
     <!-- jQuery -->
     <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <!-- Bootstrap JS bundle with Popper.js -->
