@@ -191,7 +191,7 @@
     },
     {
         "id": 18,
-        "title": "Haz click sobre la letra diferente",
+        "title": "Haz click sobre la palabra escuchada",
         "letters": ["mapata","madata","damata","mapaba","mamata","pamada","matapa","dapama","pamata","madata","mapada","pamada","bapama"],
         "dim": 3,
         "target": "pamata",

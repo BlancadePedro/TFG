@@ -37,21 +37,23 @@ def results(response):
     return render(response, "prueba/results.html", {})
 
 @login_required(login_url="/login")
-def save_test_results(request, user_profile_id):
+def save_test_results(request, user_profile_id, index):
     if request.method == 'POST':
         user_profile = Profile.objects.get(pk=user_profile_id)
-        test = Test.objects.get_or_create(user_profile=user_profile)
+        test, _ = Test.objects.get_or_create(user_profile=user_profile)
 
-        hits = request.POST.getlist('hits[]')
-        misses = request.POST.getlist('misses[]')
-        scores = request.POST.getlist('scores[]')
+        data = json.loads(request.body)
+        hits = data['hits']
+        misses = data['misses']
+        clicks = data['clicks']
 
-        test.hits = {f'hits{i}': int(hits[i - 1]) for i in range(1, 33)}
-        test.misses = {f'misses{i}': int(misses[i - 1]) for i in range(1, 33)}
-        test.scores = {f'score{i}': float(scores[i - 1]) for i in range(1, 33)}
+        test.hits[f'hits{index}'] = int(hits[index - 1])
+        test.misses[f'misses{index}'] = int(misses[index - 1])
+        test.clicks[f'clicks{index}'] = int(clicks[index - 1])
 
         test.save()
 
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False})
+

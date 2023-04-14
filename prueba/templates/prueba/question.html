@@ -26,6 +26,10 @@
         data-index="{{ exercise.id }}">
     </div>
     <div class="card align-self-center p-0">
+        <input type="hidden" id="user-profile-id" value="{{ user.id }}">
+        <form id="csrf-form" style="display:none;">
+            {% csrf_token %}
+          </form>          
         <div class="card-header text-center bg-blue-blue-100">
             <span id="timer" class="fs-1"></span>
             <span id="header" class="fs-1"></span>

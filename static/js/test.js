@@ -1,3 +1,23 @@
+async function saveTestResults() {
+  const url = `/prueba/save_test_results/${user_profile_id}/${index}/`;
+  const data = {
+    hits: hits,
+    misses: misses,
+    clicks: clicks,
+  };
+
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrf_token,
+    },
+  });
+
+  return response.json();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   
   const exerciseDataElement = document.getElementById("exercise-data");
@@ -15,26 +35,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const dim = parseInt(exerciseDataElement.dataset.dim);
     createTableWithoutTargetLetter(letters, dim);
   } else if (index === 22) {
-    createMissingLetterExercise(letters);
+    createMissingLetter(letters);
   } else if (index === 23) {
-    createExtraLetterExercise(letters);
+    createExtraLetter(letters);
   } else if (index === 24 || index === 25) {
-    createErrorClickExercise(letters);
+    createErrorClick(letters);
   } else if (index === 26) {
-    createLetterCorrectionExercise(letters);
+    createLetterCorrection(letters);
   } else if (index === 27|| index === 28) {
-    createReorderLettersExercise(letters);
+    createReorderLetters(letters);
   } else if (index === 29) {
-    createSeparateWordsExercise(letters);
+    createSeparateWords(letters);
   } else if (index === 30) {
-    createSequenceExercise(letters);
+    createSequence(letters);
   } else if (index === 31|| index === 32) {
-    createAudioWordExercise(letters,index);
+    createAudioWord(letters,index);
   } else {
     console.log("En progreso");
   }
   
-
   const timerElement = document.getElementById("timer");
   let timeLeft = 15;
 
@@ -78,7 +97,9 @@ function showModal(index, globalHits) {
     </div>
     <div class="modal-body">
       <h5>Ha realizado ${index} de 32 ejercicios.</h5>
-      <p>Ha obtenido una puntuación de ${globalHits}.</p>
+      <p>Ha acertado ${globalHits} ejercicios.</p>
+      <p>Ha fallado ${globalMisses} ejercicios.</p>
+      <p>Ha clickeado ${globalClicks} veces.</p>
       <p>A continuación, realizará el siguiente ejercicio.</p>
     </div>
     <div class="modal-footer text-center bg-blue-blue-100">
@@ -88,120 +109,172 @@ function showModal(index, globalHits) {
   `;
   modalContainer.innerHTML = modalHTML;
   $("#nextModal").modal('show');
+
+  //POST 
+  const username = document.getElementById("user-profile-id").value;
+  const csrfToken = document.querySelector("#csrf-form input[name='csrfmiddlewaretoken']").value;
+  fetch('/prueba/save_test_results/' + username + '/' + index + '/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrfToken
+    },
+    body: JSON.stringify({
+      hits: Array.from({ length: 32 }, (_, i) => i < index ? globalHits : 0),
+      misses: Array.from({ length: 32 }, (_, i) => i < index ? globalMisses : 0),
+      clicks: Array.from({ length: 32 }, (_, i) => i < index ? globalClicks : 0),
+    })
+  }).then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      console.log('Datos guardados correctamente');
+    } else {
+      console.log('Error al guardar los datos');
+    }
+  }).catch(error => {
+    console.log('Error:', error);
+  });
+
 }
 
 // Variables globales para almacenar hits y misses
 let globalHits = 0;
 let globalMisses = 0;
+let globalClicks = 0;
 
-function handleButtonClick(selectedLetter, exerciseType) {
+function handleButtonClick(selectedLetter, exerciseType, inputLength = 1) {
   let targetLetter;
-  let hits, misses;
+  let clicks, hits, misses;
 
   if (exerciseType === 'withTarget') {
     targetLetter = document.getElementById("exercise-data").dataset.target;
     hits = createTableWithTargetLetter.hits;
     misses = createTableWithTargetLetter.misses;
+    clicks = createTableWithTargetLetter.clicks
   } else if (exerciseType === 'withoutTarget') {
     targetLetter = selectedLetter.getAttribute('data-different-letter');
     hits = createTableWithoutTargetLetter.hits;
     misses = createTableWithoutTargetLetter.misses;
+    clicks = createTableWithoutTargetLetter.clicks
   } else if (exerciseType === 'missingLetter') {
     targetLetter = selectedLetter.getAttribute('data-missing-letter');
-    hits = createMissingLetterExercise.hits;
-    misses = createMissingLetterExercise.misses;
+    hits = createMissingLetter.hits;
+    misses = createMissingLetter.misses;
+    clicks = createMissingLetter.clicks;
   } else if (exerciseType === 'extraLetter') {
     targetLetter = selectedLetter.getAttribute('data-extra-letter');
-    hits = createExtraLetterExercise.hits;
-    misses = createExtraLetterExercise.misses;
+    hits = createExtraLetter.hits;
+    misses = createExtraLetter.misses;
+    clicks = createExtraLetter.clicks;
   } else if (exerciseType === 'errorClick') {
     targetLetter = selectedLetter.getAttribute('data-is-incorrect');
-    hits = createErrorClickExercise.hits;
-    misses = createErrorClickExercise.misses;
+    hits = createErrorClick.hits;
+    misses = createErrorClick.misses;
+    clicks = createErrorClick.clicks;
   } else if (exerciseType === 'correctClick') {
     targetLetter = selectedLetter.getAttribute('data-is-correct');
-    hits = createLetterCorrectionExercise.hits;
-    misses = createLetterCorrectionExercise.misses;
+    hits = createLetterCorrection.hits;
+    misses = createLetterCorrection.misses;
+    clicks = createLetterCorrection.clicks;
   } else if (exerciseType === 'reorderLetters') {
     targetLetter = selectedLetter.getAttribute('data-reordered');
-    hits = createReorderLettersExercise.hits;
-    misses = createReorderLettersExercise.misses;
+    hits = createReorderLetters.hits;
+    misses = createReorderLetters.misses;
+    clicks = createReorderLetters.clicks;
   } else if (exerciseType === 'separateWords') {
     targetLetter = selectedLetter.getAttribute('data-reordered');
-    hits = createSeparateWordsExercise.hits;
-    misses = createSeparateWordsExercise.misses;
+    hits = createSeparateWords.hits;
+    misses = createSeparateWords.misses;
+    clicks = createSeparateWords.clicks;
   } else if (exerciseType === 'sequence') {
     targetLetter = selectedLetter.getAttribute('data-target-sequence');
-    hits = createSequenceExercise.hits;
-    misses = createSequenceExercise.misses;
+    hits = createSequence.hits;
+    misses = createSequence.misses;
+    clicks = createSequence.clicks;
   } else if (exerciseType === "audioWord") {
     targetLetter = selectedLetter.getAttribute("data-target-word");
-    hits = createAudioWordExercise.hits;
-    misses = createAudioWordExercise.misses;
+    hits = createAudioWord.hits;
+    misses = createAudioWord.misses;
+    clicks = createAudioWord.clicks; 
   }
 
   if (selectedLetter.innerText === targetLetter) {
     hits++;
-    globalHits++; // Actualiza el hit global
+    clicks += inputLength; 
+    globalHits++; 
+    globalClicks += inputLength; 
   } else {
     misses++;
-    globalMisses++; // Actualiza el miss global
+    clicks += inputLength; 
+    globalMisses++; 
+    globalClicks += inputLength; 
   }
 
   if (exerciseType === 'withTarget') {
     createTableWithTargetLetter.hits = hits;
     createTableWithTargetLetter.misses = misses;
+    createTableWithTargetLetter.clicks = clicks;
   } else if (exerciseType === 'withoutTarget') {
     createTableWithoutTargetLetter.hits = hits;
     createTableWithoutTargetLetter.misses = misses;
+    createTableWithoutTargetLetter.clicks = clicks;
   } else if (exerciseType === 'missingLetter') {
-    createMissingLetterExercise.hits = hits;
-    createMissingLetterExercise.misses = misses;
+    createMissingLetter.hits = hits;
+    createMissingLetter.misses = misses;
+    createMissingLetter.clicks = clicks;
   } else if (exerciseType === 'extraLetter'){
-    createExtraLetterExercise.hits = hits;
-    createExtraLetterExercise.misses = misses;
+    createExtraLetter.hits = hits;
+    createExtraLetter.misses = misses;
+    createExtraLetter.clicks = clicks;
   } else if (exerciseType === 'errorClick') {
-    createErrorClickExercise.hits = hits;
-    createErrorClickExercise.misses = misses;
+    createErrorClick.hits = hits;
+    createErrorClick.misses = misses;
+    createErrorClick.clicks = clicks;
   } else if (exerciseType === 'correctClick') {
-    createLetterCorrectionExercise.hits = hits;
-    createLetterCorrectionExercise.misses = misses;
+    createLetterCorrection.hits = hits;
+    createLetterCorrection.misses = misses;
+    createLetterCorrection.clicks = clicks;
   } else if (exerciseType === 'reorderLetters') {
-    createReorderLettersExercise.hits = hits;
-    createReorderLettersExercise.misses = misses;
+    createReorderLetters.hits = hits;
+    createReorderLetters.misses = misses;
+    createReorderLetters.clicks = clicks;
   } else if (exerciseType === 'separateWords') {
-    createSeparateWordsExercise.hits = hits;
-    createSeparateWordsExercise.misses = misses;
+    createSeparateWords.hits = hits;
+    createSeparateWords.misses = misses;
+    createSeparateWords.clicks = clicks;
   } else if (exerciseType === 'sequence') {
-    createSequenceExercise.hits = hits;
-    createSequenceExercise.misses = misses;
+    createSequence.hits = hits;
+    createSequence.misses = misses;
+    createSequence.clicks = clicks;
   } else if (exerciseType === "audioWord") {
-    createAudioWordExercise.hits = hits;
-    createAudioWordExercise.misses = misses;
+    createAudioWord.hits = hits;
+    createAudioWord.misses = misses;
+    createAudioWord.clicks = clicks;
   }
 
   console.log("Letra pulsada: " + selectedLetter.innerText);
-  return { hits, misses };
+  return { hits, misses, clicks };
 }
 
 function createTableWithTargetLetter(letters, dim, target) {
   const table = document.getElementById("tableQ");
   createTableWithTargetLetter.hits = 0;
   createTableWithTargetLetter.misses = 0;
+  createTableWithTargetLetter.clicks = 0;
 
+  //Creamos la tabla dim x dim
   for (let i = 0; i < dim; i++) {
     let row = document.createElement("tr");
     for (let j = 0; j < dim; j++) {
       let cell = document.createElement("td");
-
+      //Cada elemento de la cuadricula es un botón
       let button = document.createElement("button");
       button.className = "btn btn-light fs-lg-2 fs-md-4 fs-sm-6 border-0";
       button.style.width = "100%";
       button.style.height = "100%";
-      button.style.fontSize = "15px";
       button.addEventListener("click", function () {
-        const { hits, misses } = handleButtonClick(this, 'withTarget');
-        console.log("Hits: " + hits + ", Misses: " + misses);
+        const { hits, misses, clicks } = handleButtonClick(this, 'withTarget');
+        console.log("Hits: " + hits + ", Misses: " + misses+ ", Clicks: " + clicks);
         updateTable();
       });
 
@@ -216,16 +289,16 @@ function createTableWithTargetLetter(letters, dim, target) {
     table.appendChild(row);
   }
 
-  // Función para colocar la letra 'target' en una posición aleatoria
+  // Al menos una letra 'target' en una posición aleatoria
   function placeRandomTarget() {
     const randomRow = Math.floor(Math.random() * dim);
     const randomColumn = Math.floor(Math.random() * dim);
     table.rows[randomRow].cells[randomColumn].firstChild.innerText = target;
   }
 
-  // Llamamos a la función placeRandomTarget() para asegurar que haya al menos una letra 'target' en la tabla
   placeRandomTarget();
 
+  //Cada vez que se pulsa un botón se actualizrá la tabla
   function updateTable() {
     let targetPlaced = false;
 
@@ -253,6 +326,7 @@ function createTableWithoutTargetLetter(letters, dim) {
   const table = document.getElementById("tableQ");
   createTableWithoutTargetLetter.hits = 0;
   createTableWithoutTargetLetter.misses = 0;
+  createTableWithoutTargetLetter.clicks = 0;
 
   function updateTable() {
     const randomIndex = Math.floor(Math.random() * letters.length);
@@ -284,10 +358,9 @@ function createTableWithoutTargetLetter(letters, dim) {
       button.className = "btn btn-light fs-lg-2 fs-md-4 fs-sm-6 border-0";
       button.style.width = "100%";
       button.style.height = "100%";
-      button.style.fontSize = "15px";
       button.addEventListener("click", function () {
-        const { hits, misses } = handleButtonClick(this, 'withoutTarget');
-        console.log("Hits: " + hits + ", Misses: " + misses);
+        const { hits, misses, clicks } = handleButtonClick(this, 'withoutTarget');
+        console.log("Hits: " + hits + ", Misses: " + misses+ ", Clicks: " + clicks);
         updateTable(); // Llama a updateTable() cada vez que se hace clic en un botón
       });
 
@@ -298,14 +371,15 @@ function createTableWithoutTargetLetter(letters, dim) {
     table.appendChild(row);
   }
 
-  // Llama a updateTable() por primera vez para llenar la tabla con las letras iniciales
+  //Llenar la tabla con las letras iniciales
   updateTable();
 }
 
-function createMissingLetterExercise(letters) {
+function createMissingLetter(letters) {
   // Variables globales para almacenar hits y misses
-  createMissingLetterExercise.hits = 0;
-  createMissingLetterExercise.misses = 0;
+  createMissingLetter.hits = 0;
+  createMissingLetter.misses = 0;
+  createMissingLetter.clicks = 0;
 
   const table = document.getElementById("tableQ");
   let currentIndex = 0;
@@ -330,26 +404,26 @@ function createMissingLetterExercise(letters) {
         button.innerText = letter;
         button.setAttribute("data-missing-letter", missingLetter);
         button.addEventListener("click", function () {
-          const { hits, misses } = handleButtonClick(this, 'missingLetter');
-          console.log("Hits: " + hits + ", Misses: " + misses);
+          const { hits, misses, clicks } = handleButtonClick(this, 'missingLetter');
+          console.log("Hits: " + hits + ", Misses: " + misses + ", Clicks: " + clicks);
+          
           currentIndex++;
           displayExercise(); // Llama a displayExercise() cada vez que se hace clic en un botón
         });
 
         lettersContainer.appendChild(button);
       });
-    } else {
-      // Mostrar modal aquí cuando se complete el ejercicio
     }
   }
 
   displayExercise(); // Llama a displayExercise() por primera vez para llenar la tabla con las letras iniciales
 }
 
-function createExtraLetterExercise(letters) {
+function createExtraLetter(letters) {
   // Variables globales para almacenar hits y misses
-  createExtraLetterExercise.hits = 0;
-  createExtraLetterExercise.misses = 0;
+  createExtraLetter.hits = 0;
+  createExtraLetter.misses = 0;
+  createExtraLetter.clicks = 0;
 
   let currentIndex = 0;
 
@@ -369,13 +443,13 @@ function createExtraLetterExercise(letters) {
         letterElement.innerText = word[i];
         letterElement.setAttribute("data-extra-letter", extraLetter);
         letterElement.addEventListener("click", function () {
-          const { hits, misses } = handleButtonClick(this, 'extraLetter');
-          console.log("Hits: " + hits + ", Misses: " + misses);
+          const { hits, misses, clicks } = handleButtonClick(this, 'extraLetter');
+          console.log("Hits: " + hits + ", Misses: " + misses+ ", Clicks: " + clicks);
           currentIndex++;
           displayExtraLetterExercise(); // Llama a displayExtraLetterExercise() cada vez que se hace clic en un elemento de letra
         });
 
-        // Estilos aplicados desde JavaScript
+
         letterElement.style.cursor = "pointer";
         letterElement.onmouseover = function () {
           this.style.color = "indigo";
@@ -386,17 +460,16 @@ function createExtraLetterExercise(letters) {
 
         wordElement.appendChild(letterElement);
       }
-    } else {
-      // Mostrar modal aquí cuando se complete el ejercicio
-    }
+    } 
   }
-
-  displayExtraLetterExercise(); // Llama a displayExtraLetterExercise() por primera vez para mostrar la primera palabra
+  displayExtraLetterExercise
+  displayExtraLetterExercise();
 }
 
-function createErrorClickExercise(letters) {
-  createErrorClickExercise.hits = 0;
-  createErrorClickExercise.misses = 0;
+function createErrorClick(letters) {
+  createErrorClick.hits = 0;
+  createErrorClick.misses = 0;
+  createErrorClick.clicks = 0;
 
   const exerciseContainer = document.getElementById("exercise-container");
 
@@ -410,7 +483,6 @@ function createErrorClickExercise(letters) {
       const wordSpans = words.map(word => {
         const span = document.createElement('span');
         span.textContent = word;
-        //span.classList.add("fs-2");
         span.classList.add('clickable-word', 'fs-2');
         span.tabIndex = 0;
 
@@ -441,8 +513,8 @@ function createErrorClickExercise(letters) {
 
       exerciseContainer.onclick = function (event) {
         if (event.target.classList.contains('clickable-word')) {
-          const { hits, misses } = handleButtonClick(event.target, 'errorClick');
-          console.log('Hits:', hits, 'Misses:', misses);
+          const { hits, misses, clicks } = handleButtonClick(event.target, 'errorClick');
+          console.log('Hits:', hits, 'Misses:', misses, 'Clicks: ', clicks);
 
           if (letters.length > 0) {
             displayErrorClickExercise();
@@ -457,9 +529,10 @@ function createErrorClickExercise(letters) {
   displayErrorClickExercise();
 }
 
-function createLetterCorrectionExercise(letters) {
-  createLetterCorrectionExercise.hits = 0;
-  createLetterCorrectionExercise.misses = 0;
+function createLetterCorrection(letters) {
+  createLetterCorrection.hits = 0;
+  createLetterCorrection.misses = 0;
+  createLetterCorrection.clicks = 0;
 
   let currentIndex = 0;
 
@@ -506,8 +579,8 @@ function createLetterCorrectionExercise(letters) {
             button.setAttribute('data-is-correct', right);
 
             button.addEventListener("click", () => {
-              const { hits, misses } = handleButtonClick(button, 'correctClick');
-              console.log('Hits:', hits, 'Misses:', misses);
+              const { hits, misses, clicks } = handleButtonClick(button, 'correctClick');
+              console.log('Hits:', hits, 'Misses:', misses, 'Clicks', clicks);
 
               currentIndex++;
               buttonsContainer.remove();
@@ -523,6 +596,7 @@ function createLetterCorrectionExercise(letters) {
           choicesContainer.appendChild(buttonsContainer);
         } else {
           console.log("Sigue intentándolo");
+          createLetterCorrection.clicks ++;
         }
       });
 
@@ -533,9 +607,10 @@ function createLetterCorrectionExercise(letters) {
   displayCurrentWord();
 }
 
-function createReorderLettersExercise(letters) {
-  createReorderLettersExercise.hits = 0;
-  createReorderLettersExercise.misses = 0;
+function createReorderLetters(letters) {
+  createReorderLetters.hits = 0;
+  createReorderLetters.misses = 0;
+  createReorderLetters.clicks = 0;
 
   let currentIndex = 0;
 
@@ -561,7 +636,9 @@ function createReorderLettersExercise(letters) {
 
       button.addEventListener("click", () => {
         button.disabled = true;
-        
+        createReorderLetters.clicks ++;
+        globalClicks ++;
+        console.log("Clicks",createReorderLetters.clicks)
         userAnswer.push(letter);
 
         wordContainer.innerHTML = userAnswer.join('');
@@ -571,7 +648,7 @@ function createReorderLettersExercise(letters) {
           const userAnswerString = userAnswer.join('');
           console.log(userAnswerString);
           const result = handleButtonClick({innerText: userAnswerString, getAttribute: () => word}, 'reorderLetters');
-          console.log('Hits:', result.hits, 'Misses:', result.misses);
+          console.log('Hits:', result.hits, 'Misses:', result.misses, 'Clicks:', result.clicks);
         
           currentIndex++;
           if (currentIndex < letters.length) {
@@ -587,9 +664,10 @@ function createReorderLettersExercise(letters) {
   displayCurrentWord();
 }
 
-function createSeparateWordsExercise(letters) {
-  createSeparateWordsExercise.hits = 0;
-  createSeparateWordsExercise.misses = 0;
+function createSeparateWords(letters) {
+  createSeparateWords.hits = 0;
+  createSeparateWords.misses = 0;
+  createSeparateWords.clicks = 0;
 
   let currentIndex = 0;
 
@@ -614,10 +692,28 @@ function createSeparateWordsExercise(letters) {
     submitButton.classList.add("btn", "btn-outline-indigo-700", "mt-3","fs-4","col-4");
     submitButton.addEventListener("click", () => {
       const userInput = inputField.value.trim().split(/\s+/);
+      let isSentenceCorrect = true;
 
-      for (let i = 0; i < correctWords.length; i++) {
-        const result = handleButtonClick({innerText: userInput[i], getAttribute: () => correctWords[i]}, 'separateWords');
-        console.log('Hits:', result.hits, 'Misses:', result.misses);
+      createSeparateWords.clicks += userInput.length;
+      globalClicks += userInput.length;
+
+      if (userInput.length === correctWords.length) {
+        for (let i = 0; i < correctWords.length; i++) {
+          if (userInput[i] !== correctWords[i]) {
+            isSentenceCorrect = false;
+            break;
+          }
+        }
+      } else {
+        isSentenceCorrect = false;
+      }
+
+      if (isSentenceCorrect) {
+        createSeparateWords.hits++;
+        globalHits++;
+      } else {
+        createSeparateWords.misses++;
+        globalMisses++;
       }
 
       currentIndex++;
@@ -633,13 +729,14 @@ function createSeparateWordsExercise(letters) {
   displayCurrentSentence();
 }
 
-function createSequenceExercise(letters) {
+function createSequence(letters) {
+
+  createSequence.hits = 0;
+  createSequence.misses = 0;
+  createSequence.clicks = 0;
 
   const timer = document.getElementById("header");
   timer.style.display = 'none';
-
-  createSequenceExercise.hits = 0;
-  createSequenceExercise.misses = 0;
 
   let currentIndex = 0;
 
@@ -678,6 +775,7 @@ function createSequenceExercise(letters) {
       submitButton.classList.add("btn", "btn-outline-indigo-700", "mt-3","fs-4","col-4");
       submitButton.addEventListener("click", () => {
         const userAnswer = inputField.value;
+        const inputLength = userAnswer.length;
 
         const selectedLetter = {
           innerText: userAnswer,
@@ -688,8 +786,8 @@ function createSequenceExercise(letters) {
           }
         };
 
-        const result = handleButtonClick(selectedLetter, 'sequence');
-        console.log('Hits:', result.hits, 'Misses:', result.misses);
+        const result = handleButtonClick(selectedLetter, 'sequence', inputLength);
+        console.log('Hits:', result.hits, 'Misses:', result.misses, 'Clicks:', result.clicks);
 
         currentIndex++;
         if (currentIndex < letters.length) {
@@ -709,17 +807,17 @@ function createSequenceExercise(letters) {
   displayCurrentSequence();
 }
 
-function createAudioWordExercise(letters, index) {
-  createAudioWordExercise.hits = 0;
-  createAudioWordExercise.misses = 0;
+function createAudioWord(letters, index) {
+  createAudioWord.hits = 0;
+  createAudioWord.misses = 0;
+  createAudioWord.clicks = 0;
 
   let currentIndex = 0;
 
-  const wordContainer = document.getElementById("word-container");
   const choicesContainer = document.getElementById("choices-container");
   const header = document.getElementById("header");
 
-  function displayCurrentAudioWord() {
+  function displayAudioWord() {
     if (currentIndex >= letters.length) {
       showModal(index, globalHits);
       return;
@@ -749,6 +847,7 @@ function createAudioWordExercise(letters, index) {
     submitButton.classList.add("btn", "btn-outline-indigo-600", "m-2", "fs-4", "col-4");
     submitButton.addEventListener("click", () => {
       const userAnswer = inputField.value;
+      const inputLength = userAnswer.length; // Obtener la longitud del input
 
       // Crear un objeto que contenga las propiedades necesarias para handleButtonClick
       const selectedLetter = {
@@ -760,18 +859,18 @@ function createAudioWordExercise(letters, index) {
         }
       };
 
-      const result = handleButtonClick(selectedLetter, 'audioWord');
-      console.log('Hits:', result.hits, 'Misses:', result.misses);
+      const result = handleButtonClick(selectedLetter, 'audioWord', inputLength); 
+      console.log('Hits:', result.hits, 'Misses:', result.misses, 'Clicks: ', result.clicks);
 
       currentIndex++;
       choicesContainer.innerHTML = ''; // Limpiar choicesContainer antes de mostrar el siguiente input
-      displayCurrentAudioWord(); // Llamar a displayCurrentAudioWord() para mostrar el siguiente input
+      displayAudioWord(); // Llamar a displayAudioWord() para mostrar el siguiente input
     });
 
     choicesContainer.appendChild(inputField);
     choicesContainer.appendChild(submitButton);
   }
 
-  displayCurrentAudioWord();
+  displayAudioWord();
 }
 

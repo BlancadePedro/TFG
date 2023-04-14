@@ -7,6 +7,5 @@ urlpatterns = [
     path("instructions/<int:index>", views.instructions, name="instructions"), 
     path("results", views.results, name="results"),
     path("question/<int:index>", views.question, name="question"), 
-    path('save_test_results/<int:user_profile_id>/', views.save_test_results, name='save_test_results'),
-    
+    path('save_test_results/<int:user_profile_id>/<int:index>/', views.save_test_results, name='save_test_results'),    
 ]

@@ -54,7 +54,7 @@ function changeCursorSize(cursor) {
 }
   
 function changeLetterSpacing(letterSpacing) {
-    $('html').removeClass('letter-spacing-1 letter-spacing-2 letter-spacing-3')
+    $('html,body').removeClass('letter-spacing-1 letter-spacing-2 letter-spacing-3')
         .addClass('letter-spacing-' + letterSpacing);
         console.log('letter-spacing-' + letterSpacing);
 }
@@ -126,7 +126,7 @@ function loadSettings() {
     }
 
     if (savedLineHeight) {
-        $('#font-family').val(savedLineHeight);
+        $('#line-height').val(savedLineHeight);
         changeLineHeight(savedLineHeight);
     }
 

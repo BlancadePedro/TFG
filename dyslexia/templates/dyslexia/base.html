@@ -19,7 +19,7 @@
     <link href="{% static '/css/fontopendyslexic.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static '/css/style.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static '/css/accesibilidad.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/accessibility.css' %}" rel="stylesheet" type="text/css">
     <!--Font Awesome JS-->
     <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
     <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
@@ -99,7 +99,7 @@
                     <label class="form-label" for="font-family">Tipografía</label>
                   </div>
                   <div>
-                    <select class="form-select" id="font-family" name="font-family">
+                    <select class="form-select" id="font-family" aria-label="Select example font-family" name="font-family">
                       <option class="text-font-open-sans" selected>Fuentes disponibles</option>
                       <option class="text-font-opendyslexic" value="1" >OpenDyslexic</option>
                       <option class="text-font-monserrat" value="2">Montserrat</option>
@@ -120,10 +120,10 @@
                   </div>
                 </li>
               
-                <!-- Espaciado entre letras -->
+                <!-- Espaciado -->
                 <li class="dropdown-item">
                   <div>
-                    <label class="form-label" for="letter-spacing">Espaciado entre letras</label>
+                    <label class="form-label" for="letter-spacing">Espaciado</label>
                   </div>
                   <div>
                     <input class="form-range" type="range" id="letter-spacing" name="letter-spacing" min="1" max="3" step="1" value="1">
@@ -246,7 +246,7 @@
       </div>
     </footer>
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="{% static '/js/accesibilidad.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/accessibility.js' %}"></script>
     <!-- jQuery -->
     <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <!-- Bootstrap JS bundle with Popper.js -->
