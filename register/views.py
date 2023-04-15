@@ -9,9 +9,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.shortcuts import render, redirect
 
-
-
-
 def register(response):
     if response.method == "POST":
         form = ProfileForm(response.POST)

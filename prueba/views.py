@@ -1,4 +1,8 @@
 import json
+import pickle
+import pandas as pd
+import numpy as np
+
 from django.shortcuts import render
 from django import forms
 from django.urls import reverse
@@ -33,10 +37,6 @@ def instructions(request, index):
     return render(request, 'prueba/instructions.html', {'exercise': current})
 
 @login_required(login_url="/login")
-def results(response):
-    return render(response, "prueba/results.html", {})
-
-@login_required(login_url="/login")
 def save_test_results(request, user_profile_id, index):
     if request.method == 'POST':
         user_profile = Profile.objects.get(pk=user_profile_id)
@@ -56,4 +56,53 @@ def save_test_results(request, user_profile_id, index):
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False})
+    
+
+
+
+@login_required(login_url="/login")
+def results(request, user_profile_id):
+    #ML model
+    model = pickle.load(open('ml_model.sav', 'rb'))
+    
+    #DDBB
+    test = Test.objects.get(user_profile_id=user_profile_id)
+    user = Profile.objects.get(pk=user_profile_id)
+    
+    #Data
+    hits = test.hits
+    misses = test.misses
+    clicks = test.clicks
+    #Gender = user.sexo
+    Gender = 0 if user.sexo == "Hombre" else 1
+    #Nativelang = user.lengua
+    Nativelang = 0 if user.sexo == "No" else 1
+    #Otherlang = user.suspender
+    Otherlang = 0 if user.sexo == "No" else 1
+    Age = user.edad
+
+    #user info
+    test_data = {"Gender": Gender, "Nativelang": Nativelang, "Otherlang": Otherlang, "Age": Age}
+
+
+    for i in range(1, 33):  # Itera desde 1 hasta 32
+        clicks_i = clicks.get(f"clicks{i}", None)
+        hits_i = hits.get(f"hits{i}", None)
+        misses_i = misses.get(f"misses{i}", None)
+        
+        # add data
+        test_data[f"Clicks{i}"] = clicks_i
+        test_data[f"Hits{i}"] = hits_i
+        test_data[f"Misses{i}"] = misses_i
+
+    #data ML model -> DataFrame
+    df = pd.DataFrame([test_data])
+    print(df)
+
+    #predict
+    prediction = model.predict(df)
+    print("Eres diséxico: ",prediction)
+
+    # Renderiza la plantilla con el resultado de la predicción
+    return render(request, 'prueba/results.html', {'prediction': int(prediction), 'Data': test_data})
 

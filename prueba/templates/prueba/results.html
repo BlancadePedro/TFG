@@ -10,5 +10,15 @@
 
 {% block content %}
 
+<h1>
+    ¿Eres díslexico?
+    <br>
+    {% if prediction == 1 %}
+        Nuestro modelo de Machine Learning ha determinado que <strong>Sí</strong>
+    {% else %}
+        Nuestro modelo de Machine Learning ha determinado que <strong>No</strong>
+    {% endif %}
+</h1>
+<h2> {{ Data.Clicks1 }} </h2>
 
 {% endblock %}

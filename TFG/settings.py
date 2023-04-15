@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'fontawesomefree',
-    'django_bootstrap_icons',
     'dyslexia.apps.DyslexiaConfig',
     'register.apps.RegisterConfig',
     'practica.apps.PracticaConfig',
