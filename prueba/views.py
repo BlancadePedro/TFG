@@ -20,9 +20,46 @@ with open('static/data/exercises.json', 'r') as f:
 
 @login_required(login_url="/login")
 def intro(request):
-    user_profile = request.user
-    print(user_profile)
-    test = Test.objects.create(user_profile=user_profile)
+    user = request.user
+    test, created = Test.objects.get_or_create(user_profile=user)
+    #already in DDBB
+    if not created: 
+        #ML model
+        model = pickle.load(open('ml_model.sav', 'rb'))
+        
+        #Data
+        hits = test.hits
+        misses = test.misses
+        clicks = test.clicks
+        #Gender = user.sexo
+        Gender = 0 if user.sexo == "Hombre" else 1
+        #Nativelang = user.lengua
+        Nativelang = 0 if user.lengua == "No" else 1
+        #Otherlang = user.suspender
+        Otherlang = 0 if user.suspender == "No" else 1
+        Age = user.edad
+
+        #user info
+        test_data = {"Gender": Gender, "Nativelang": Nativelang, "Otherlang": Otherlang, "Age": Age}
+
+
+        for i in range(1, 33):  # Itera desde 1 hasta 32
+            clicks_i = clicks.get(f"clicks{i}", None)
+            hits_i = hits.get(f"hits{i}", None)
+            misses_i = misses.get(f"misses{i}", None)
+            
+            # add data
+            test_data[f"Clicks{i}"] = clicks_i
+            test_data[f"Hits{i}"] = hits_i
+            test_data[f"Misses{i}"] = misses_i
+
+        #data ML model -> DataFrame
+        df = pd.DataFrame([test_data])
+
+        #predict
+        prediction = model.predict(df)
+        return render(request, 'prueba/results.html', {'prediction': int(prediction), 'Data': test_data})
+    
     print(test)
     return render(request, "prueba/intro.html", {})
 
@@ -36,12 +73,14 @@ def instructions(request, index):
     current = exercises[index - 1]
     return render(request, 'prueba/instructions.html', {'exercise': current})
 
+
 @login_required(login_url="/login")
 def save_test_results(request, user_profile_id, index):
-    if request.method == 'POST':
-        user_profile = Profile.objects.get(pk=user_profile_id)
-        test, _ = Test.objects.get_or_create(user_profile=user_profile)
+    user_profile = Profile.objects.get(pk=user_profile_id)
+    test, _ = Test.objects.get_or_create(user_profile=user_profile)
 
+    #first time
+    if request.method == 'POST':
         data = json.loads(request.body)
         hits = data['hits']
         misses = data['misses']
@@ -56,6 +95,7 @@ def save_test_results(request, user_profile_id, index):
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False})
+
     
 
 
@@ -76,9 +116,9 @@ def results(request, user_profile_id):
     #Gender = user.sexo
     Gender = 0 if user.sexo == "Hombre" else 1
     #Nativelang = user.lengua
-    Nativelang = 0 if user.sexo == "No" else 1
+    Nativelang = 0 if user.lengua == "No" else 1
     #Otherlang = user.suspender
-    Otherlang = 0 if user.sexo == "No" else 1
+    Otherlang = 0 if user.suspender == "No" else 1
     Age = user.edad
 
     #user info

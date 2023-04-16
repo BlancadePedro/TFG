@@ -12,13 +12,473 @@
 
 <h1>
     ¿Eres díslexico?
-    <br>
-    {% if prediction == 1 %}
-        Nuestro modelo de Machine Learning ha determinado que <strong>Sí</strong>
-    {% else %}
-        Nuestro modelo de Machine Learning ha determinado que <strong>No</strong>
-    {% endif %}
 </h1>
-<h2> {{ Data.Clicks1 }} </h2>
+<h2>
+    {% if prediction == 1 %}
+        Nuestro modelo de Machine Learning ha determinado que <strong>sí</strong> eres disléxico
+    {% else %}
+        Nuestro modelo de Machine Learning ha determinado que <strong>no</strong> eres disléxico
+    {% endif %}
+</h2>
+<h3>Echa un vistazo a los resultados obtenidos del test y los procesos cognitivos implicados en cada ejercicio</h3>
+<div class="table-responsive p-3 round">
+    <table class="table table-hover text-center align-middle">
+        <thead class="bg-blue-blue-100">
+            <tr>
+                <th scope="col">Índice</th>
+                <th scope="col">Procesos cognitivos implicados</th>
+                <th scope="col">Clicks</th>
+                <th scope="col">Aciertos</th>
+                <th scope="col">Fallos</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">1</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Alfabética 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Visual
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks1 }}</td>
+                <td>{{ Data.Hits1 }}</td>
+                <td>{{ Data.Misses1 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Alfabética 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Visual
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks2 }}</td>
+                <td>{{ Data.Hits2 }}</td>
+                <td>{{ Data.Misses2 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Alfabética 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Visual
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks3 }}</td>
+                <td>{{ Data.Hits3 }}</td>
+                <td>{{ Data.Misses3 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Alfabética 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Visual
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks4 }}</td>
+                <td>{{ Data.Hits4 }}</td>
+                <td>{{ Data.Misses4 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Silábica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks5 }}</td>
+                <td>{{ Data.Hits5 }}</td>
+                <td>{{ Data.Misses5 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Silábica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks6 }}</td>
+                <td>{{ Data.Hits6 }}</td>
+                <td>{{ Data.Misses6 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Silábica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks7 }}</td>
+                <td>{{ Data.Hits7 }}</td>
+                <td>{{ Data.Misses7 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Silábica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks8 }}</td>
+                <td>{{ Data.Hits8 }}</td>
+                <td>{{ Data.Misses8 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Silábica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks9 }}</td>
+                <td>{{ Data.Hits9 }}</td>
+                <td>{{ Data.Misses9 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks10 }}</td>
+                <td>{{ Data.Hits10 }}</td>
+                <td>{{ Data.Misses10 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks11 }}</td>
+                <td>{{ Data.Hits11 }}</td>
+                <td>{{ Data.Misses11 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">12</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks12 }}</td>
+                <td>{{ Data.Hits12 }}</td>
+                <td>{{ Data.Misses12 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">13</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminación Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks13 }}</td>
+                <td>{{ Data.Hits13 }}</td>
+                <td>{{ Data.Misses13 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">14</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Visual 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Funciones Ejecutivas
+                </td>
+                <td>{{ Data.Clicks14 }}</td>
+                <td>{{ Data.Hits14 }}</td>
+                <td>{{ Data.Misses14 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">15</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Visual 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Funciones Ejecutivas
+                </td>
+                <td>{{ Data.Clicks15 }}</td>
+                <td>{{ Data.Hits15 }}</td>
+                <td>{{ Data.Misses15 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">16</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Visual 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Funciones Ejecutivas
+                </td>
+                <td>{{ Data.Clicks16 }}</td>
+                <td>{{ Data.Hits16 }}</td>
+                <td>{{ Data.Misses16 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">17</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Visual 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Funciones Ejecutivas
+                </td>
+                <td>{{ Data.Clicks17 }}</td>
+                <td>{{ Data.Hits17 }}</td>
+                <td>{{ Data.Misses17 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">18</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Visual
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva y Secuencia
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminaci ́on Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks18 }}</td>
+                <td>{{ Data.Hits18 }}</td>
+                <td>{{ Data.Misses18 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">19</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Visual
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva y Secuencia
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminaci ́on Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks19 }}</td>
+                <td>{{ Data.Hits19 }}</td>
+                <td>{{ Data.Misses19 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">20</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Visual
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva y Secuencia
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminaci ́on Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks20 }}</td>
+                <td>{{ Data.Hits20 }}</td>
+                <td>{{ Data.Misses20 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">21</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Visual
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva y Secuencia
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Discriminaci ́on Auditiva
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Categorización
+                </td>
+                <td>{{ Data.Clicks21 }}</td>
+                <td>{{ Data.Hits21 }}</td>
+                <td>{{ Data.Misses21 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">22</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                </td>
+                <td>{{ Data.Clicks22 }}</td>
+                <td>{{ Data.Hits22 }}</td>
+                <td>{{ Data.Misses22 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">23</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                </td>
+                <td>{{ Data.Clicks23 }}</td>
+                <td>{{ Data.Hits23 }}</td>
+                <td>{{ Data.Misses23 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">24</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Morfológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Semántica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Sintáctica
+                </td>
+                <td>{{ Data.Clicks24 }}</td>
+                <td>{{ Data.Hits24 }}</td>
+                <td>{{ Data.Misses24 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">25</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Morfológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Semántica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Sintáctica
+                </td>
+                <td>{{ Data.Clicks25 }}</td>
+                <td>{{ Data.Hits25 }}</td>
+                <td>{{ Data.Misses25 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">26</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                </td>
+                <td>{{ Data.Clicks26 }}</td>
+                <td>{{ Data.Hits26 }}</td>
+                <td>{{ Data.Misses26 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">27</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                </td>
+                <td>{{ Data.Clicks27 }}</td>
+                <td>{{ Data.Hits27 }}</td>
+                <td>{{ Data.Misses27 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">28</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Silábica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                </td>
+                <td>{{ Data.Clicks28 }}</td>
+                <td>{{ Data.Hits28 }}</td>
+                <td>{{ Data.Misses28 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">29</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                </td>
+                <td>{{ Data.Clicks29 }}</td>
+                <td>{{ Data.Hits29 }}</td>
+                <td>{{ Data.Misses29 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">30</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Visual Secuancial 
+                </td>
+                <td>{{ Data.Clicks30 }}</td>
+                <td>{{ Data.Hits30 }}</td>
+                <td>{{ Data.Misses30 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">31</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Léxica 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Ortográfica
+                    <br>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva
+                </td>
+                <td>{{ Data.Clicks31 }}</td>
+                <td>{{ Data.Hits31 }}</td>
+                <td>{{ Data.Misses31 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">32</th>
+                <td>
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Memoria de Trabajo Auditiva Secuancial 
+                    <br> 
+                    <i class="fa-solid fa-check text-blue-blue-800"></i> Conciencia Fonológica
+                </td>
+                <td>{{ Data.Clicks32 }}</td>
+                <td>{{ Data.Hits32 }}</td>
+                <td>{{ Data.Misses32 }}</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
 
 {% endblock %}
