@@ -1,0 +1,48 @@
+{% extends 'practica/base.html' %}
+{% load static %}
+{% block title %}Test page - ReadRight{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item disable">Inicio</li>
+    <li class="breadcrumb-item disable">Ejercicios de tratamiento</li>
+    <li class="breadcrumb-item active" aria-current="page">Realización del Ejercicio</li>
+{% endblock %}
+
+{% block content %}
+
+<div class="modal fade" id="nextModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-labelledby="nextModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-container"></div>
+    </div>
+</div>
+<div class="container-fluid p-0 m-0">  
+    <div id="exercise-data"
+        class="d-none"
+        data-x="{{ exercise.x }}"
+        data-o="{{ exercise.o }}"
+        data-states="{{ exercise.states }}"
+        data-words="{{ exercise.words }}"
+        data-index="{{ exercise.id }}">
+    </div>
+    <div class="card align-self-center p-0">
+        <div class="card-header text-center bg-blue-blue-100">
+            <span id="header" class="fs-1">
+                {{ exercise.title }}
+            </span>
+        </div>
+        <div class="card-body text-center px-2 pt-3">
+            <span id="tic-tac-toe-board"></span>
+            <h2 class="text-center" id="hang-man-word"></h2>
+            <div  id="hang-man-board">
+            </div>
+            <div id="hangman-input-container">
+
+            </div>
+            <div class="fs-3 text-center" id="hang-man-letters"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static '/js/pract.js' %}"></script>
+{% endblock %}
+

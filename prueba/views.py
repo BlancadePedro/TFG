@@ -1,16 +1,9 @@
 import json
 import pickle
 import pandas as pd
-import numpy as np
 
 from django.shortcuts import render
-from django import forms
-from django.urls import reverse
-from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.core.serializers.json import DjangoJSONEncoder
-from django.templatetags.static import static
-from requests import request
 from register.models import Profile
 from prueba.models import Test
 from django.http import JsonResponse
@@ -96,10 +89,6 @@ def save_test_results(request, user_profile_id, index):
     else:
         return JsonResponse({'success': False})
 
-    
-
-
-
 @login_required(login_url="/login")
 def results(request, user_profile_id):
     #ML model
@@ -143,6 +132,5 @@ def results(request, user_profile_id):
     prediction = model.predict(df)
     print("Eres diséxico: ",prediction)
 
-    # Renderiza la plantilla con el resultado de la predicción
     return render(request, 'prueba/results.html', {'prediction': int(prediction), 'Data': test_data})
 

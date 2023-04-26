@@ -10,6 +10,12 @@
 
 {% block content %}
 
+<div class="d-flex justify-content-center mt-5">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+    </div>
+</div>
+
 <h1>
     ¿Eres díslexico?
 </h1>
@@ -480,5 +486,11 @@
         </tbody>
     </table>    
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector(".spinner-border").style.display = "none";
+    });
+</script>
 
 {% endblock %}
