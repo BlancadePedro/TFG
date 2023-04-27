@@ -10,6 +10,10 @@
 
 {% block content %}
 
+<head>
+
+</head>
+
 <div class="modal fade" id="nextModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-labelledby="nextModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" id="modal-container"></div>
@@ -22,7 +26,18 @@
         data-o="{{ exercise.o }}"
         data-states="{{ exercise.states }}"
         data-words="{{ exercise.words }}"
-        data-index="{{ exercise.id }}">
+        data-photos="{{ exercise.images }}"
+        data-index="{{ exercise.id }}"
+        data-back="{{ exercise.back }}"
+        data-red="{{ exercise.red }}"
+        data-blue="{{ exercise.blue }}"
+        data-yellow="{{ exercise.yellow }}"
+        data-green="{{ exercise.green }}"
+        data-right-hand="{{exercise.rightHand}}"
+        data-left-hand="{{exercise.leftHand}}"
+        data-right-leg="{{exercise.rightLeg}}"
+        data-left-leg="{{exercise.leftLeg}}"
+        data-letters="{{exercise.letters}}">
     </div>
     <div class="card align-self-center p-0">
         <div class="card-header text-center bg-blue-blue-100">
@@ -31,18 +46,24 @@
             </span>
         </div>
         <div class="card-body text-center px-2 pt-3">
-            <span id="tic-tac-toe-board"></span>
-            <h2 class="text-center" id="hang-man-word"></h2>
+            <div id="tic-tac-toe-board"></div>
+            <div id="photos-board"></div>
+            <div id="memory-board"></div>
+            <div id="twister-board"></div>
+            <h2 class="text-center" id="hang-man-word" aria-label="Letras acertadas"></h2>
             <div  id="hang-man-board">
             </div>
             <div id="hangman-input-container">
-
             </div>
-            <div class="fs-3 text-center" id="hang-man-letters"></div>
+            <div class="fs-3 text-center" id="hang-man-letters" aria-label="Letras falladas"></div>
+            </div>
+            <div class="fs-2 text-center" id="word-container">
+            </div>
+            <div class="fs-3 text-center" id="choices-container" aria-label="Opciones"></div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="{% static '/js/pract.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/practice.js' %}"></script>
 {% endblock %}
 

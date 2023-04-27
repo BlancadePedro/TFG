@@ -270,7 +270,7 @@ function createTableWithTargetLetter(letters, dim, target) {
       let cell = document.createElement("td");
       //Cada elemento de la cuadricula es un botón
       let button = document.createElement("button");
-      button.className = "btn btn-light fs-lg-2 fs-md-4 fs-sm-6 border-0";
+      button.className = "btn btn-light fs-4 border-0";
       button.style.width = "100%";
       button.style.height = "100%";
       button.addEventListener("click", function () {
@@ -356,7 +356,7 @@ function createTableWithoutTargetLetter(letters, dim) {
       let cell = document.createElement("td");
 
       let button = document.createElement("button");
-      button.className = "btn btn-light fs-lg-2 fs-md-4 fs-sm-6 border-0";
+      button.className = "btn btn-light fs-4 border-0";
       button.style.width = "100%";
       button.style.height = "100%";
       button.addEventListener("click", function () {
