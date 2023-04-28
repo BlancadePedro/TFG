@@ -459,93 +459,63 @@ function initMemory() {
 ////////////////////////////////////////////////////////////////
 let moveCounter = 0;
 
-function initTwister (){
-    
-    const board = document.getElementById('twister-board');
-    const leftColumn = document.createElement('div');
-    const centerColumn = document.createElement('div');
-    const rightColumn = document.createElement('div');
+function initTwister() {
+  const board = document.getElementById('twister-board');
+  const leftColumn = document.getElementById('left-column');
+  leftColumn.classList.add('justify-content-center', 'text-center', 'align-text-center');
+  const centerColumn = document.getElementById('center-column');
+  centerColumn.classList.add('justify-content-center', 'text-center', 'align-text-center');
+  const rightColumn = document.getElementById('right-column');
+  rightColumn.classList.add('justify-content-center', 'text-center', 'align-text-center');
 
-    leftColumn.classList.add('left-column');
-    centerColumn.classList.add('center-column');
-    rightColumn.classList.add('right-column');
+  function createCircle(color, imagePath, number) {
+    const circle = document.createElement('div');
+    circle.classList.add(
+      'circle',
+      color,
+      'border',
+      'border-dark',
+      'rounded-circle',
+      'mx-1',
+      'my-1'
+    );
+    circle.style.width = '7vw';
+    circle.style.height = '7vw';
+    circle.style.backgroundImage = `url(${imagePath})`;
+    circle.style.backgroundSize = 'cover';
+    circle.classList.add('object-fit-cover', 'img-fluid', 'text-center');
+    circle.innerHTML = number;
 
-    leftColumn.classList.add("col")
-    centerColumn.classList.add("col")
-    rightColumn.classList.add("col")
-    board.appendChild(leftColumn);
-    board.appendChild(centerColumn);
-    board.appendChild(rightColumn);
-
-    
-
-    // Mano izquierda
-    const leftHandImage = createDraggableImage('leftHand', exerciseData.getAttribute('data-left-hand'));
-    leftHandImage.ondragstart = (event) => {
-        event.dataTransfer.setData('text', event.target.id);
+    circle.ondragover = (event) => {
+      event.preventDefault();
     };
-    //leftColumn.appendChild(leftHandImage);
 
-    // Mano derecha
-    const rightHandImage = createDraggableImage('rightHand', exerciseData.getAttribute('data-right-hand'));
-    rightHandImage.ondragstart = (event) => {
-        event.dataTransfer.setData('text', event.target.id);
-    };
-    //rightColumn.appendChild(rightHandImage);
-
-    // Pierna izquierda
-    const leftLegImage = createDraggableImage('leftLeg', exerciseData.getAttribute('data-left-leg'));
-    leftLegImage.ondragstart = (event) => {
-        event.dataTransfer.setData('text', event.target.id);
-    };
-    //leftColumn.appendChild(leftLegImage);
-
-    // Pierna derecha
-    const rightLegImage = createDraggableImage('rightLeg', exerciseData.getAttribute('data-right-leg'));
-    rightLegImage.ondragstart = (event) => {
-        event.dataTransfer.setData('text', event.target.id);
-    };
-    //rightColumn.appendChild(rightLegImage);
-
-
-    function createCircle(color, imagePath) {
-        const circle = document.createElement('div');
-        circle.classList.add(
-          'circle',
-          color,
-          'border',
-          'border-dark',
-          'rounded-circle',
-          'mx-1',
-          'my-1'
-        );
-        circle.style.width = '100px';
-        circle.style.height = '100px';
-        circle.style.backgroundImage = `url(${imagePath})`;
-        circle.style.backgroundSize = 'cover';
-    
-        circle.ondragover = (event) => {
-          event.preventDefault();
-        };
-    
-        circle.ondrop = (event) => {
-          event.preventDefault();
-          const data = event.dataTransfer.getData('text');
-          const draggedElement = document.getElementById(data);
-          const clonedElement = draggedElement.cloneNode(true);
-          const colorClass = Array.from(clonedElement.classList).find((c) =>
-            colors.includes(c)
-          );
-          if (colorClass === color) {
-            event.target.appendChild(clonedElement);
-          }
-        };
-    
-        return circle;
+    circle.ondrop = (event) => {
+      event.preventDefault();
+      const data = event.dataTransfer.getData('text');
+      const draggedElement = document.getElementById(data);
+      const clonedElement = draggedElement.cloneNode(true);
+      const colorClass = Array.from(clonedElement.classList).find((c) =>
+        colors.includes(c)
+      );
+      if (colorClass === color) {
+        event.target.appendChild(clonedElement);
       }
+    };
+
+    return circle;
+  }
+
+   // Botón "Girar"
+   const spinButton = document.createElement('button');
+   spinButton.innerHTML = 'Girar';
+   spinButton.classList.add("btn", "btn-outline-indigo-600", "m-2", "fs-4", "col-10");
+   spinButton.addEventListener('click', spin);
+   centerColumn.appendChild(spinButton);
     
     // Crear el tablero de Twister
     const colors = ['red', 'blue', 'yellow', 'green'];
+    const number = ['1', '2', '3', '4'];
     const images = {
         red: exerciseData.getAttribute('data-red'),
         blue: exerciseData.getAttribute('data-blue'),
@@ -555,67 +525,85 @@ function initTwister (){
 
     for (let row = 0; row < 4; row++) {
         const circleRow = document.createElement('div');
-        circleRow.classList.add('row', 'justify-content-center');
         const currentColor = colors[row];
+        const currentNumber = number[row];
         const imagePath = images[currentColor];
-
+        circleRow.classList.add('row', 'align-text-center')
         for (let col = 0; col < 6; col++) {
-            const circle = createCircle(currentColor, imagePath);
+            const circle = createCircle(currentColor, imagePath, currentNumber);
             circleRow.appendChild(circle);
         }
         centerColumn.appendChild(circleRow);
     }
 
-    // Botón "Girar"
-    const spinButton = document.createElement('button');
-    spinButton.innerHTML = 'Girar';
-    spinButton.classList.add("btn", "btn-outline-indigo-600", "m-2", "fs-4", "col-lg-4", "col-sm-1");
-    spinButton.addEventListener('click', spin);
-    board.appendChild(spinButton);
+   
     
 
     function addBodyPartImage(column, part) {
         const img = document.createElement('img');
         img.src = exerciseData.getAttribute(`data-${part}`);
-        img.classList.add('draggable', part);
+        img.classList.add('draggable', part, 'contain', 'object-fit-contain', 'img-fluid', 'tex-center');
+        img.style.width = '75%';
+        img.style.height = '75%';
         img.draggable = true;
         img.addEventListener('dragstart', onDragStart);
         column.appendChild(img);
     }
 
+    addBodyPartImage(leftColumn, 'left');
+    addBodyPartImage(rightColumn, 'right');
+
     function onDragStart(e) {
         e.dataTransfer.setData('text/plain', e.target.classList[1]);
     }
 
-    function createDraggableImage(id, imagePath) {
-        const img = document.createElement('img');
-        img.setAttribute('src', imagePath);
-        img.setAttribute('id', id);
-        img.setAttribute('draggable', 'true');
-        img.classList.add('img-fluid');
-        return img;
-    }    
-
-    // Función para girar
+    
     function spin() {
         if (moveCounter < 10) {
-            const colors = ['red', 'blue', 'yellow', 'green'];
-            const limbs = ['leftHand', 'leftLeg', 'rightHand', 'rightLeg'];
-
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            const randomLimb = limbs[Math.floor(Math.random() * limbs.length)];
-
-            // Mostrar el modal con la información
-            console.log(`Mover ${randomLimb} hacia un círculo ${randomColor}`)
-            showModalNext(`Mover ${randomLimb} hacia un círculo ${randomColor}`, moveCounter+1)
-
-            const cells = document.querySelectorAll(`.cell.${randomColor}`);
-            for (const cell of cells) {
-                cell.addEventListener('dragover', onDragOver);
-                cell.addEventListener('drop', (e) => onDrop(e, randomLimb));
+          const colors = ['red', 'blue', 'yellow', 'green'];
+          const limbs = ['left', 'right'];
+    
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          const randomLimb = limbs[Math.floor(Math.random() * limbs.length)];
+    
+          // Mostrar el modal con la información
+          if(randomLimb === 'left'){
+            if(randomColor === 'red'){
+                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color rojo (1)`, moveCounter + 1); 
+            }
+            if(randomColor === 'blue'){
+                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color azul (2)`, moveCounter + 1); 
+            }
+            if(randomColor === 'yellow'){
+                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color amarillo (3)`, moveCounter + 1); 
+            }
+            if(randomColor === 'green'){
+                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color verde (4)`, moveCounter + 1); 
+            }
+          }
+          else{
+            if(randomColor === 'red'){
+                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color rojo (1)`, moveCounter + 1); 
+            }
+            if(randomColor === 'blue'){
+                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color azul (2)`, moveCounter + 1); 
+            }
+            if(randomColor === 'yellow'){
+                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color amarillo (3)`, moveCounter + 1); 
+            }
+            if(randomColor === 'green'){
+                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color verde (4)`, moveCounter + 1); 
             }
 
-            moveCounter++;
+          }
+          //showModalNext(`Mover la figura situada en la ${randomLimb} hacia un círculo de color ${randomColor}`, moveCounter + 1); 
+          const circles = document.querySelectorAll(`.circle.${randomColor}`);
+        for (const circle of circles) {
+            circle.addEventListener('dragover', onDragOver);
+            circle.addEventListener('drop', (e) => onDrop(e, randomLimb, randomColor));
+        }
+
+        moveCounter++;
         } else {
             showModal('La partida ya se ha acabado');
         }
@@ -625,13 +613,15 @@ function initTwister (){
         e.preventDefault();
     }
 
-    function onDrop(e, limb) {
+    function onDrop(e, limb, color) {
         e.preventDefault();
         const draggedLimb = e.dataTransfer.getData('text/plain');
         if (draggedLimb === limb) {
           const img = document.createElement('img');
           img.src = exerciseData.getAttribute(`data-${limb}`);
-          img.classList.add('placed', limb);
+          img.classList.add('placed', limb, 'contain', 'object-fit-contain', 'img-fluid');
+          img.style.width = '100%';
+          img.style.height = '100%';
           const colorClass = Array.from(e.target.classList).find((c) =>
             colors.includes(c)
           );
@@ -639,7 +629,8 @@ function initTwister (){
             e.target.appendChild(img);
           }
         }
-    }
+      }
+      
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -772,7 +763,7 @@ function initPhotos() {
 
 
 function initError() {
-
+    
     const letters = JSON.parse(exerciseData.getAttribute('data-letters').replace(/'/g, '"'));
     let currentIndex = 0;
 

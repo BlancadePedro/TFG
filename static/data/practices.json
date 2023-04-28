@@ -42,10 +42,8 @@
         "blue": "/static/img/bonbon-blue-circle.png",
         "yellow": "/static/img/bonbon-yellow-circle.png",
         "green": "/static/img/bonbon-green-circle.png",
-        "rightHand":"/static/img/shine-young-man-waving.png",
-        "leftHand":"/static/img/shine-young-woman-waving.png",
-        "rightLeg":"/static/img/shine-young-woman-in-pink-sport-clothes-is-doing-yoga-1-left.png",
-        "leftLeg":"/static/img/shine-young-woman-in-pink-sport-clothes-is-doing-yoga-1-right.png"
+        "rightSize":"/static/img/shine-young-man-waving-right.png",
+        "leftSize":"/static/img/shine-young-woman-waving-left.png"
     },
     {
         "id": 5,
