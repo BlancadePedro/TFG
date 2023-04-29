@@ -482,8 +482,8 @@ function initTwister() {
     circle.style.width = '7vw';
     circle.style.height = '7vw';
     circle.style.backgroundImage = `url(${imagePath})`;
-    circle.style.backgroundSize = 'cover';
-    circle.classList.add('object-fit-cover', 'img-fluid');
+    circle.style.backgroundSize = 'contain';
+    circle.classList.add('object-fit-contain', 'img-fluid');
     circle.innerHTML = number;
 
     circle.ondragover = (event) => {
@@ -519,7 +519,7 @@ function initTwister() {
         const currentColor = colors[row];
         const currentNumber = number[row];
         const imagePath = images[currentColor];
-        circleRow.classList.add('row', 'align-text-center')
+        circleRow.classList.add('row', 'align-text-center', 'text-center', 'justify-content-center')
         for (let col = 0; col < 6; col++) {
             const circle = createCircle(currentColor, imagePath, currentNumber);
             circleRow.appendChild(circle);
