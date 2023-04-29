@@ -459,14 +459,14 @@ function initMemory() {
 ////////////////////////////////////////////////////////////////
 let moveCounter = 0;
 
+let lastLimb = null;
+let lastColor = null;
+
 function initTwister() {
   const board = document.getElementById('twister-board');
   const leftColumn = document.getElementById('left-column');
-  leftColumn.classList.add('justify-content-center', 'text-center', 'align-text-center');
   const centerColumn = document.getElementById('center-column');
-  centerColumn.classList.add('justify-content-center', 'text-center', 'align-text-center');
   const rightColumn = document.getElementById('right-column');
-  rightColumn.classList.add('justify-content-center', 'text-center', 'align-text-center');
 
   function createCircle(color, imagePath, number) {
     const circle = document.createElement('div');
@@ -483,7 +483,7 @@ function initTwister() {
     circle.style.height = '7vw';
     circle.style.backgroundImage = `url(${imagePath})`;
     circle.style.backgroundSize = 'cover';
-    circle.classList.add('object-fit-cover', 'img-fluid', 'text-center');
+    circle.classList.add('object-fit-cover', 'img-fluid');
     circle.innerHTML = number;
 
     circle.ondragover = (event) => {
@@ -492,15 +492,6 @@ function initTwister() {
 
     circle.ondrop = (event) => {
       event.preventDefault();
-      const data = event.dataTransfer.getData('text');
-      const draggedElement = document.getElementById(data);
-      const clonedElement = draggedElement.cloneNode(true);
-      const colorClass = Array.from(clonedElement.classList).find((c) =>
-        colors.includes(c)
-      );
-      if (colorClass === color) {
-        event.target.appendChild(clonedElement);
-      }
     };
 
     return circle;
@@ -509,7 +500,7 @@ function initTwister() {
    // Botón "Girar"
    const spinButton = document.createElement('button');
    spinButton.innerHTML = 'Girar';
-   spinButton.classList.add("btn", "btn-outline-indigo-600", "m-2", "fs-4", "col-10");
+   spinButton.classList.add("btn", "btn-outline-indigo-600", "m-2", "fs-4", "col-8");
    spinButton.addEventListener('click', spin);
    centerColumn.appendChild(spinButton);
     
@@ -536,8 +527,6 @@ function initTwister() {
         centerColumn.appendChild(circleRow);
     }
 
-   
-    
 
     function addBodyPartImage(column, part) {
         const img = document.createElement('img');
@@ -554,59 +543,69 @@ function initTwister() {
     addBodyPartImage(rightColumn, 'right');
 
     function onDragStart(e) {
-        e.dataTransfer.setData('text/plain', e.target.classList[1]);
+        const draggedLimb = e.target.classList[1];
+        if (draggedLimb === lastLimb) {
+          e.dataTransfer.setData('text/plain', draggedLimb);
+        } else {
+          e.preventDefault();
+        }
     }
 
     
     function spin() {
         if (moveCounter < 10) {
-          const colors = ['red', 'blue', 'yellow', 'green'];
-          const limbs = ['left', 'right'];
-    
-          const randomColor = colors[Math.floor(Math.random() * colors.length)];
-          const randomLimb = limbs[Math.floor(Math.random() * limbs.length)];
-    
-          // Mostrar el modal con la información
-          if(randomLimb === 'left'){
-            if(randomColor === 'red'){
-                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color rojo (1)`, moveCounter + 1); 
+            const colors = ['red', 'blue', 'yellow', 'green'];
+            const limbs = ['left', 'right'];
+        
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomLimb = limbs[Math.floor(Math.random() * limbs.length)];
+        
+            lastLimb = randomLimb; // Guardar el último miembro seleccionado
+            lastColor = randomColor; // Guardar el último color seleccionado
+
+            // Mostrar el modal con la información
+            if(randomLimb === 'left'){
+                if(randomColor === 'red'){
+                    showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color rojo (1)`, moveCounter + 1); 
+                }
+                if(randomColor === 'blue'){
+                    showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color azul (2)`, moveCounter + 1); 
+                }
+                if(randomColor === 'yellow'){
+                    showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color amarillo (3)`, moveCounter + 1); 
+                }
+                if(randomColor === 'green'){
+                    showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color verde (4)`, moveCounter + 1); 
+                }
             }
-            if(randomColor === 'blue'){
-                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color azul (2)`, moveCounter + 1); 
+            else{
+                if(randomColor === 'red'){
+                    showModalNext(`Mover la figura situada en la derecha hacia un círculo de color rojo (1)`, moveCounter + 1); 
+                }
+                if(randomColor === 'blue'){
+                    showModalNext(`Mover la figura situada en la derecha hacia un círculo de color azul (2)`, moveCounter + 1); 
+                }
+                if(randomColor === 'yellow'){
+                    showModalNext(`Mover la figura situada en la derecha hacia un círculo de color amarillo (3)`, moveCounter + 1); 
+                }
+                if(randomColor === 'green'){
+                    showModalNext(`Mover la figura situada en la derecha hacia un círculo de color verde (4)`, moveCounter + 1); 
+                }
+
             }
-            if(randomColor === 'yellow'){
-                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color amarillo (3)`, moveCounter + 1); 
-            }
-            if(randomColor === 'green'){
-                showModalNext(`Mover la figura situada en la izquierda hacia un círculo de color verde (4)`, moveCounter + 1); 
-            }
-          }
-          else{
-            if(randomColor === 'red'){
-                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color rojo (1)`, moveCounter + 1); 
-            }
-            if(randomColor === 'blue'){
-                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color azul (2)`, moveCounter + 1); 
-            }
-            if(randomColor === 'yellow'){
-                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color amarillo (3)`, moveCounter + 1); 
-            }
-            if(randomColor === 'green'){
-                showModalNext(`Mover la figura situada en la derecha hacia un círculo de color verde (4)`, moveCounter + 1); 
+            
+            const circles = document.querySelectorAll(`.circle.${randomColor}`);
+            for (const circle of circles) {
+                circle.removeEventListener('dragover', onDragOver);
+                circle.removeEventListener('drop', onDrop);
+                circle.addEventListener('dragover', onDragOver);
+                circle.addEventListener('drop', (e) => onDrop(e, randomLimb, randomColor));
             }
 
-          }
-          //showModalNext(`Mover la figura situada en la ${randomLimb} hacia un círculo de color ${randomColor}`, moveCounter + 1); 
-          const circles = document.querySelectorAll(`.circle.${randomColor}`);
-        for (const circle of circles) {
-            circle.addEventListener('dragover', onDragOver);
-            circle.addEventListener('drop', (e) => onDrop(e, randomLimb, randomColor));
-        }
-
-        moveCounter++;
-        } else {
-            showModal('La partida ya se ha acabado');
-        }
+            moveCounter++;
+            } else {
+                showModal('La partida ya se ha acabado');
+            }
     }
 
     function onDragOver(e) {
@@ -616,6 +615,7 @@ function initTwister() {
     function onDrop(e, limb, color) {
         e.preventDefault();
         const draggedLimb = e.dataTransfer.getData('text/plain');
+        console.log(draggedLimb)
         if (draggedLimb === limb) {
           const img = document.createElement('img');
           img.src = exerciseData.getAttribute(`data-${limb}`);
@@ -626,10 +626,22 @@ function initTwister() {
             colors.includes(c)
           );
           if (colorClass === color) {
-            e.target.appendChild(img);
+            // Seleccionar todas las imágenes añadidas en e.target
+            const addedImages = e.target.querySelectorAll('.placed');
+
+            // Si hay imágenes añadidas, seleccionar la última
+            if (addedImages.length > 0) {
+            const lastAddedImage = addedImages[addedImages.length - 1];
+
+            // Realizar acciones con la última imagen añadida
+            console.log('Última imagen añadida:', lastAddedImage);
+            e.target.appendChild(lastAddedImage);
+            }
+            else{ e.target.appendChild(img);}
+           
           }
         }
-      }
+    }
       
 }
 

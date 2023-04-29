@@ -34,10 +34,10 @@
         data-blue="{{ exercise.blue }}"
         data-yellow="{{ exercise.yellow }}"
         data-green="{{ exercise.green }}"
-        data-right="{{exercise.rightSize}}"
-        data-left="{{exercise.leftSize}}">
+        data-left="{{exercise.rightSize}}"
+        data-right="{{exercise.leftSize}}">
     </div>
-    <div class="card align-self-center p-0">
+    <div class="card p-0">
         <div class="card-header text-center bg-blue-blue-100">
             <span id="header" class="fs-1">
                 {{ exercise.title }}
@@ -49,7 +49,7 @@
             <div id="memory-board"></div>
             <div class="row align-text-center" id="twister-board">
                 <div id="left-column" class="col-3"></div>
-                <div id="center-column" class="col-6"></div>
+                <div id="center-column" class="col-6 align-text-center text-center"></div>
                 <div id="right-column" class="col-3"></div>
             </div>
             <h2 class="text-center" id="hang-man-word" aria-label="Letras acertadas"></h2>
@@ -66,6 +66,6 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{% static '/js/pract.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/practice.js' %}"></script>
 {% endblock %}
 
