@@ -6,4 +6,6 @@ class Test(models.Model):
     hits = models.JSONField(default=dict)
     misses = models.JSONField(default=dict)
     clicks = models.JSONField(default=dict)
+    result = models.PositiveSmallIntegerField(null=True)
+
 

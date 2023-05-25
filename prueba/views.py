@@ -17,9 +17,6 @@ def intro(request):
     test, created = Test.objects.get_or_create(user_profile=user)
     #already in DDBB
     if not created: 
-        #ML model
-        model = pickle.load(open('ml_model.sav', 'rb'))
-        
         #Data
         hits = test.hits
         misses = test.misses
@@ -46,12 +43,9 @@ def intro(request):
             test_data[f"Hits{i}"] = hits_i
             test_data[f"Misses{i}"] = misses_i
 
-        #data ML model -> DataFrame
-        df = pd.DataFrame([test_data])
-
-        #predict
-        prediction = model.predict(df)
-        return render(request, 'prueba/results.html', {'prediction': int(prediction), 'Data': test_data})
+        prediction = test.result
+        print(prediction)
+        return render(request, 'prueba/results.html', {'prediction': prediction, 'Data': test_data})
     
     print(test)
     return render(request, "prueba/intro.html", {})
@@ -132,5 +126,10 @@ def results(request, user_profile_id):
     prediction = model.predict(df)
     print("Eres diséxico: ",prediction)
 
+    # Save the prediction in the database
+    test.result = 1 if prediction else 0
+    test.save()
+
     return render(request, 'prueba/results.html', {'prediction': int(prediction), 'Data': test_data})
+
 
